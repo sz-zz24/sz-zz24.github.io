@@ -1,0 +1,4 @@
+[submodule "public"]
+	path = public
+	url = git@github.com:sz-zz24/sz-zz24.github.io.git
+	branch = master
