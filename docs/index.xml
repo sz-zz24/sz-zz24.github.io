@@ -6,7 +6,7 @@
     <description>Recent content on claven&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 09 Mar 2021 21:18:21 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 23 Feb 2021 17:01:05 +0800</lastBuildDate>
     
         <atom:link href="https://z24z.com/index.xml" rel="self" type="application/rss+xml" />
     
@@ -270,17 +270,6 @@ And then define the link:
 &lt;/ul&gt;
 &lt;p&gt;Learn more and contribute on &lt;a href=&#34;https://github.com/gohugoio&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
 </description>
-      
-    </item>
-    
-    <item>
-      <title>My Second Post</title>
-      <link>https://z24z.com/posts/my-first-post/</link>
-      <pubDate>Tue, 09 Mar 2021 21:18:21 +0800</pubDate>
-      
-      <guid>https://z24z.com/posts/my-first-post/</guid>
-      
-        <description></description>
       
     </item>
     
