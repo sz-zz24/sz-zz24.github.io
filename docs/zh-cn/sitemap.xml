@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://z24z.com/post/chengzhanglizhi/</loc>
+    <lastmod>2021-03-11T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://z24z.com/post/github-pages-for-blog/</loc>
     <lastmod>2021-03-11T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -30,20 +37,6 @@
   </url>
   
   <url>
-    <loc>https://z24z.com/tags/git-pages/</loc>
-    <lastmod>2021-03-11T16:01:23+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://z24z.com/tags/hugo/</loc>
-    <lastmod>2021-03-11T16:01:23+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://z24z.com/post/</loc>
     <lastmod>2021-03-11T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -52,6 +45,41 @@
   
   <url>
     <loc>https://z24z.com/tags/</loc>
+    <lastmod>2021-03-11T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://z24z.com/tags/%E5%8A%AA%E5%8A%9B/</loc>
+    <lastmod>2021-03-11T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://z24z.com/tags/%E5%8A%B1%E5%BF%97/</loc>
+    <lastmod>2021-03-11T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://z24z.com/categories/%E6%88%90%E9%95%BF%E5%8A%B1%E5%BF%97/</loc>
+    <lastmod>2021-03-11T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://z24z.com/tags/git-pages/</loc>
+    <lastmod>2021-03-11T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://z24z.com/tags/hugo/</loc>
     <lastmod>2021-03-11T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
