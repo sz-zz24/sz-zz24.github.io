@@ -6,7 +6,34 @@
     <description>Recent content in Tags on claven&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 04 Mar 2019 16:01:23 +0800</lastBuildDate><atom:link href="https://z24z.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 10 Mar 2021 16:01:23 +0800</lastBuildDate><atom:link href="https://z24z.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git Pages</title>
+      <link>https://z24z.com/tags/git-pages/</link>
+      <pubDate>Wed, 10 Mar 2021 16:01:23 +0800</pubDate>
+      
+      <guid>https://z24z.com/tags/git-pages/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hugo</title>
+      <link>https://z24z.com/tags/hugo/</link>
+      <pubDate>Wed, 10 Mar 2021 16:01:23 +0800</pubDate>
+      
+      <guid>https://z24z.com/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>个人博客</title>
+      <link>https://z24z.com/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Wed, 10 Mar 2021 16:01:23 +0800</pubDate>
+      
+      <guid>https://z24z.com/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>math</title>
       <link>https://z24z.com/tags/math/</link>
@@ -152,38 +179,11 @@
     </item>
     
     <item>
-      <title>hugo</title>
-      <link>https://z24z.com/tags/hugo/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://z24z.com/tags/hugo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>jekyll</title>
       <link>https://z24z.com/tags/jekyll/</link>
       <pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate>
       
       <guid>https://z24z.com/tags/jekyll/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Syntax Highlighting</title>
-      <link>https://z24z.com/tags/syntax-highlighting/</link>
-      <pubDate>Tue, 30 Aug 2011 16:01:23 +0800</pubDate>
-      
-      <guid>https://z24z.com/tags/syntax-highlighting/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tag-5</title>
-      <link>https://z24z.com/tags/tag-5/</link>
-      <pubDate>Tue, 30 Aug 2011 16:01:23 +0800</pubDate>
-      
-      <guid>https://z24z.com/tags/tag-5/</guid>
       <description></description>
     </item>
     

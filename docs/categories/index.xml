@@ -6,7 +6,25 @@
     <description>Recent content in Categories on claven&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 04 Mar 2019 16:01:23 +0800</lastBuildDate><atom:link href="https://z24z.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 10 Mar 2021 16:01:23 +0800</lastBuildDate><atom:link href="https://z24z.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>index</title>
+      <link>https://z24z.com/categories/index/</link>
+      <pubDate>Wed, 10 Mar 2021 16:01:23 +0800</pubDate>
+      
+      <guid>https://z24z.com/categories/index/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>shortcodes</title>
+      <link>https://z24z.com/categories/shortcodes/</link>
+      <pubDate>Wed, 10 Mar 2021 16:01:23 +0800</pubDate>
+      
+      <guid>https://z24z.com/categories/shortcodes/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>docs</title>
       <link>https://z24z.com/categories/docs/</link>
@@ -17,29 +35,11 @@
     </item>
     
     <item>
-      <title>index</title>
-      <link>https://z24z.com/categories/index/</link>
-      <pubDate>Mon, 04 Mar 2019 16:01:23 +0800</pubDate>
-      
-      <guid>https://z24z.com/categories/index/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>math</title>
       <link>https://z24z.com/categories/math/</link>
       <pubDate>Mon, 04 Mar 2019 16:01:23 +0800</pubDate>
       
       <guid>https://z24z.com/categories/math/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>shortcodes</title>
-      <link>https://z24z.com/categories/shortcodes/</link>
-      <pubDate>Tue, 06 Mar 2018 16:01:23 +0800</pubDate>
-      
-      <guid>https://z24z.com/categories/shortcodes/</guid>
       <description></description>
     </item>
     
