@@ -14,6 +14,7 @@ categories: [
     "golang",
     "index",
 ]
+draft: true
 ---
 
 ## Move static content to `static`
