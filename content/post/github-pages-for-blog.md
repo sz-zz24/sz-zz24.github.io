@@ -15,3 +15,8 @@ weight: 1
 # toc: false
 mathjax: true
 ---
+
+
+插入一张图片测试
+
+![魔方测试](https://static.z24z.com/blog/2021/1.jpg)
