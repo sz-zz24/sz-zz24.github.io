@@ -368,10 +368,14 @@ This tutorial will show you how to create a simple theme in Hugo. I assume that 
             <a href="https://z24z.com/categories/index/"> index </a>
             
           </div>
-        <span class="more-meta"> 7232 words </span>
-          <span class="more-meta"> 34 min read </span>
+        <span class="more-meta"> 约 7232 字 </span>
+          <span class="more-meta"> 预计阅读 34 分钟 </span>
 
         
+        
+          <span id="busuanzi_container_page_pv">
+            | 阅读 <span id="busuanzi_value_page_pv"></span>
+          </span>
         
 
         
@@ -382,7 +386,7 @@ This tutorial will show you how to create a simple theme in Hugo. I assume that 
     
     
 <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">Table of Contents</h2>
+  <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
@@ -1261,11 +1265,11 @@ $ vi themes/zafta/layouts/_default/single.html
     
 <div class="post-copyright">
   <p class="copyright-item">
-    <span class="item-title">Author</span>
+    <span class="item-title">文章作者</span>
     <span class="item-content">Michael Henderson</span>
   </p>
   <p class="copyright-item">
-    <span class="item-title">LastMod</span>
+    <span class="item-title">上次更新</span>
     <span class="item-content">
       2017-08-31
       
@@ -1273,7 +1277,7 @@ $ vi themes/zafta/layouts/_default/single.html
   </p>
   
   <p class="copyright-item">
-    <span class="item-title">License</span>
+    <span class="item-title">许可协议</span>
     <span class="item-content"><a href="https://github.com/gohugoio/hugoBasicExample" rel="noopener" target="_blank">See origin</a></span>
   </p>
 </div>
@@ -1304,12 +1308,12 @@ $ vi themes/zafta/layouts/_default/single.html
 
             </i>
             <span class="prev-text nav-default">Jane-Theme Footnote Preview</span>
-            <span class="prev-text nav-mobile">Prev</span>
+            <span class="prev-text nav-mobile">上一篇</span>
           </a>
         
           <a class="next" href="/post/this-is-a-very-long-title/">
             <span class="next-text nav-default">This is a very long title This is a very long title This is a very long title This is a very long title This is a very long title</span>
-            <span class="prev-text nav-mobile">Next</span>
+            <span class="prev-text nav-mobile">下一篇</span>
             
             <i class="iconfont">
               <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
@@ -1407,6 +1411,10 @@ $ vi themes/zafta/layouts/_default/single.html
 
   
   
+    <span id="busuanzi_container">
+      访客数/访问量：<span id="busuanzi_value_site_uv"></span>/<span id="busuanzi_value_site_pv"></span>
+    </span>
+  
 
   
 </div>
@@ -1460,6 +1468,8 @@ $ vi themes/zafta/layouts/_default/single.html
 
 
 
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 

@@ -17,9 +17,11 @@ googleAnalytics = ""      # UA-XXXXXXXX-X
 copyright = ""            # default: author.name ↓        # 默认为下面配置的author.name ↓
 
 # language support # en / zh-cn / other... translations present in i18n/
-defaultContentLanguage = "en"           # Default language to use
-[languages.en]
+defaultContentLanguage = "zh-cn"           # Default language to use
+[languages.zh-cn]
   languageCode = "zh-cn"
+# [languages.en]
+#   languageCode = "en"
 
 [author]                  # essential                     # 必需
   name = "clavenzhang"
@@ -79,6 +81,9 @@ defaultContentLanguage = "en"           # Default language to use
   #   (relative to /static/css and /static/js respectively)
   customCSS = []            # if ['custom.css'], load '/static/css/custom.css' file
   customJS = []             # if ['custom.js'], load '/static/js/custom.js' file
+
+  [params.counter.busuanzi]  # a Chinese visitor counter  # 不蒜子计数器
+    enable = true
 
   [params.social]                                         # 社交链接
   #  a-email = "mailto:402356179@qq.com"
