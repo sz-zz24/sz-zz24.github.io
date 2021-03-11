@@ -146,5 +146,14 @@ git push -u origin master
 
 自此运行hugo命令后生成的网页文件将保存在/docs子目录下。将所有文档push到github的master branch，进入github对应repository的settings标签菜单，在github pages选项的source栏选择master branch /docs folder, 详情见前面域名配置的图。等待片刻即可访问域名看到之前用hugo生成的网页了。
 
+这里面还有一个坑，大部分的内容都可以通过配置来管理，但是有一个docs的东西，怎么也找不到，它的删除方法是：
+* 将doc菜单下的几个帖子对应的markdown文件打开，删除下面所示的代码设置（这也是一种加功能菜单的方法，需要时可以用起来）
+```
+menu:
+  main:
+    parent: "docs"
+    weight: 3
+```
+
 ## 后记
 至此我的博客搭建记录就完成了，基本满足了我写文章的各项需求。也作为成长的一个新起点吧，什么事情都要从动起来开始，加油！

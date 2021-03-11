@@ -3,7 +3,7 @@ title: "Math Preview"
 author: "Murray Bourne"
 date: 2019-03-04T16:01:23+08:00
 lastmod: 2019-03-05T16:01:23+08:00
-draft: false
+draft: true
 tags: ["preview", "math", "tag-6"]
 categories: ["docs", "math", "index"]
 
@@ -17,10 +17,10 @@ katex: true
 # See https://gohugo.io/content-management/formats/#mmark
 markup: mmark
 
-menu:
-  main:
-    parent: "docs"
-    weight: 5
+#menu:
+#  main:
+#   parent: "docs"
+#    weight: 5
 ---
 
 [KaTeX and MathJax Comparison Demo, currently processed as KaTex](https://www.intmath.com/cg5/katex-mathjax-comparison.php)
