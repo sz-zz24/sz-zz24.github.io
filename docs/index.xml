@@ -5,7 +5,7 @@
     <link>https://z24z.com/</link>
     <description>Recent content on claven&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
+    <language>zh-cn</language>
     <lastBuildDate>Wed, 10 Mar 2021 16:01:23 +0800</lastBuildDate>
     
         <atom:link href="https://z24z.com/index.xml" rel="self" type="application/rss+xml" />
@@ -18,15 +18,15 @@
       
       <guid>https://z24z.com/post/github-pages-for-blog/</guid>
       
-        <description>&lt;h1 id=&#34;前言&#34;&gt;前言&lt;/h1&gt;
+        <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;在互联网大厂工作的第5个年头，危机该来还是要来了。因为公司业务调整，进了业务部门之后，发现外面似乎也那么风调雨顺。其实危机感一直有，但是人都是惰性的，认识到自己的不足，可是如果没有到致命的阶段，都是会保持无动于衷的。总有一些冠冕堂皇的理由来安慰自己，就这样在岁月蹉跎之下，没有成长，每次都在面临考验的时候反问自己，之前这么多的时间都干啥去了。博客是一个非常好的东西，可以不断记录自己的成长过程。以及关键时候，可以找到那些该死的，自己明明之前知道但是现在却怎么也记不起来的东西。好记性不如烂笔头是有科学依据的，人的大脑没有办法容纳那么多实时的/短期的和长期的记忆数据。有记录的东西，可以快速唤醒大脑内部沉睡的记忆。&lt;/p&gt;
 &lt;p&gt;为了记录自己的东西，我开始调研各种博客平台，发现github可以直接托管博客，简直不要太爽。在其他平台直接写自己的博客确实可以省掉不少麻烦，不用自己折腾。但是，用git有好几个方面的优势：第一，不用额外开一个账号，各种平台的账号太麻烦了，能少一个是一个。第二，可以直接用代码来管理自己的网站，随意DIV，非常酷。第三，完全免费，不需要购买服务器，也不需要自己担心环境/系统维护和文件存储等一系列麻烦的事情。基于这些原因，于是我开始了使用git pages搭建个人博客之旅。网上教程也比较多，但是中间还是踩过一些坑，下面也来记录一下自己搭建的整个过程。&lt;/p&gt;
-&lt;h1 id=&#34;如何使用github-pages&#34;&gt;如何使用GitHub Pages&lt;/h1&gt;
-&lt;p&gt;首先，你得有一个github的账号，然后在个人主页创建一个新的repository.进入页面后，在 Repository name 的位置填写域名，格式是username.GitHub.io.其中username就是你的github账号，这个地方必须是这样的格式，否则网站不会生效。&lt;/p&gt;
+&lt;h2 id=&#34;如何使用github-pages&#34;&gt;如何使用GitHub Pages&lt;/h2&gt;
+&lt;p&gt;首先，你得有一个github的账号，然后在个人主页创建一个新的repository.进入页面后，在 Repository name 的位置填写域名，格式是username.gitHub.io.其中username就是你的github账号，这个地方必须是这样的格式，否则网站不会生效。&lt;/p&gt;
 &lt;p&gt;创建成功之后，你可以在右上角的settings里面的github pages的选项，选择一个github官方提供的主题，选择好之后commit, github就会帮你生成网站，然后你在浏览器里面输入username.GitHub.io就可以看到效果了。当然，这个只是最简单的第一步，如果你想要做一个内容丰富的博客，我们接着往下看。&lt;/p&gt;
-&lt;h1 id=&#34;配置自定义域名&#34;&gt;配置自定义域名&lt;/h1&gt;
-&lt;h2 id=&#34;购买自己的域名&#34;&gt;购买自己的域名&lt;/h2&gt;
-&lt;p&gt;github pages提供免费为自定义域名开启HTTPS的功能，并且大大简化了操作的流程，现在用户已经不需要自己提供证书，只需要将自己的域名使用CNAME的方式指向自己的GitHub Pages域名即可。这个地方很多教程都说的不清楚，直接跳过了需要自己购买域名的这一步，让人很是摸不着头脑，可能也跟我自己的经验有关系，因为之前没有买过，所以不太懂。可以去各种云服务提供商，比如腾讯/华为/阿里等，在他们的域名注册服务页面选择自己喜欢的域名，进行注册，以腾讯云为例：&lt;/p&gt;
+&lt;h2 id=&#34;配置自定义域名&#34;&gt;配置自定义域名&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;购买自己的域名&lt;/strong&gt;
+github pages提供免费为自定义域名开启HTTPS的功能，并且大大简化了操作的流程，现在用户已经不需要自己提供证书，只需要将自己的域名使用CNAME的方式指向自己的GitHub Pages域名即可。这个地方很多教程都说的不清楚，直接跳过了需要自己购买域名的这一步，让人很是摸不着头脑，可能也跟我自己的经验有关系，因为之前没有买过，所以不太懂。可以去各种云服务提供商，比如腾讯/华为/阿里等，在他们的域名注册服务页面选择自己喜欢的域名，进行注册，以腾讯云为例：&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;进入注册页面&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://z24z.com/blog/2021/tencent_dns.png&#34; alt=&#34;域名注册&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;查询域名&lt;/strong&gt;&lt;/p&gt;
@@ -38,9 +38,94 @@
 &lt;p&gt;经过上面的配置，之后重新回到最开始进入过的settings界面，找到gitHub pages的设置，在custom domian里面填入我们刚刚建立的子域名，点击保存。保存后gitHub需要一定的时间生成证书并确认域名的解析是否正常，我们只需要耐心的等待即可，成功后显示结果如下：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://z24z.com/blog/2021/github_pages.png&#34; alt=&#34;github_pages&#34;&gt;&lt;/p&gt;
 &lt;p&gt;然后，你就可以在网站里面输入你的域名，然后看到网站的效果了。这样，网站代码托管就完成了。接下来，我们看下怎么样来构建个人的博客内容。&lt;/p&gt;
-&lt;h1 id=&#34;构建网站&#34;&gt;构建网站&lt;/h1&gt;
+&lt;h2 id=&#34;构建网站&#34;&gt;构建网站&lt;/h2&gt;
 &lt;p&gt;我们需要利用静态模板系统来让生产接管博客的文章的生成，然后才可以安静地专注博客的内容。这里面也有很多的选择，包括jekyll/hexo/hugo等等，最终选择了基于go实现的hugo，首先当然是因为hugo功能强大，不需要有额外的其他组件依赖。同时，还具备主题库丰富，更换简单，网站生成速度快等优势。话不多说，下面我们就来看一下怎么操作。&lt;/p&gt;
-&lt;h2 id=&#34;环境准备&#34;&gt;环境准备&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;环境准备&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;首先，安装hugo：初步使用Hugo的话，只需要跟随官网的文档过一遍Quick Start就可以了解基本的安装、使用方法了。这里根据我自己的经历也进行简单的说明。在Mac系统，通过包管理工具Homebrew可以非常简单的安装Hugo。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;brew install hugo
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;建立新站点&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;接下来从终端进入到你想要放置博客站点内容的目录下面使用来建立站点。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;hugo new site myblog
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;该命令会在当前目录下新建一个名为myblog的文件夹。你所有的站点文件都会在这个文件夹下面存放。常用目录用处如下&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;子目录名称&lt;/th&gt;
+&lt;th&gt;功能&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;archetypes&lt;/td&gt;
+&lt;td&gt;新文章默认模板&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;config.toml&lt;/td&gt;
+&lt;td&gt;Hugo配置文档&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;content&lt;/td&gt;
+&lt;td&gt;存放所有Markdown格式的文章&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;layouts&lt;/td&gt;
+&lt;td&gt;存放自定义的view，可为空&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;static&lt;/td&gt;
+&lt;td&gt;存放图像、CNAME、css、js等资源，发布后该目录下所有资源将处于网页根目录&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;themes&lt;/td&gt;
+&lt;td&gt;存放下载的主题&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;使用下面的命令生成新的文章草稿：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;hugo new posts/first-post.md
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;在content目录中会自动以archetypes/default.md为模板在content/posts目录下生成一篇名为first-post.md的文章草稿。或者直接在content/&lt;!-- raw HTML omitted --&gt;/&lt;!-- raw HTML omitted --&gt;.&lt;!-- raw HTML omitted --&gt;里面手动创建。在这里建议使用Hugo的new命令创建，因为根据主题不同，使用new命令创建的文件会包含简单的模版框架。例如：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;---
+title: my-first-post
+date: 2020-06-13T19:45:22+08:00
+lastmod: 2020-06-13T19:45:22+08:00
+author: Author
+cover: /post/xxx-cover.jpg
+categories: [&amp;quot;技术&amp;quot;]
+tags: [&amp;quot;Hugo&amp;quot;, &amp;quot;GitHub&amp;quot;]
+draft: true
+---
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;使用主题&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;站点生成之后，如果没有主题，就是空白的文档，这样肯定是不行的。与其他的站点工具不同，Hugo没有默认的主题，需要先添加一个主题才能新建文章。Hugo的官网上有很多的主题可选。选定一个喜欢的主题之后，需要将其下载到myblog文件夹中。在主题说明的页面中点击&amp;quot;download&amp;quot;的按钮，会进入到对应的GitHub页面中。有很多种方式可以将主题文件下载，并放置到myblog/themes/yourtheme文件夹中（yourtheme是主题的名称，可以在该主题的GitHub仓库的页面看到）。在这里为了使用git对站点进行管理，实现在不同的设备上方便的对站点进行维护，我们使用git的submodule功能。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd myblog
+git init
+git submodule add https://github.com/budparr/gohugo-theme-yourtheme.git themes/yourtheme
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;接下来，我们需要在配置文件中指名站点所使用的主题。打开config.toml直接编辑或者使用echo &amp;lsquo;theme = &amp;ldquo;yourtheme&amp;rdquo;&amp;rsquo; &amp;raquo; config.toml命令。配置文件中还有其他的可配置内容，这些我们暂时不去管他。
+Hugo的配置文件和文章中引用图片都是从static作为根目录的。写文章的时候可以直接从static目录引用。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;开启hugo本地服务&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;所有的配置都在站点根目录下的cofing.toml文件下，其中baseURL的配置就是站点生成的网址。默认本地的1313端口。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;baseURL = &amp;quot;http://localhost:1313&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;执行命令&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;hugo server -D
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;然后打开网址，就可以看到渲染的内容。这个地方说明一下，在发布到环境的时候，把这个配置改成正式环境的地址，也就是上面买的域名地址。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;配置文件&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;打开配置config.toml可以看到很多的参数可以配置，这里只描述最基本的内容，不同的主题可能会支持不同的参数配置，具体请看对应主题的说明文档。baseURL是站点的域名。title是站点的名称。theme是站点的主题。还有关于评论和打赏的相关配置，这些配置都可以参考官网主题的说明。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;发布&lt;/strong&gt;
+每次发布的时候，都需要先执行hugo，把新写的文档按照主题进行渲染，所有生成的文件默认都在当前pulic的子目录下，可以在config里面配置到其他目录。然后把所有新的文件提交到github。提交代码之后，要等一段时间才生效。&lt;/p&gt;
+&lt;h2 id=&#34;代码托管&#34;&gt;代码托管&lt;/h2&gt;
+&lt;p&gt;目前github已经把之前的master分支改为main分支了，所以username.github.io的这个代码库，main分支我们就放一些项目介绍的东西就可以。使用master分支来管理网站托管的内容。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git init
+git add .
+git commit -m &amp;quot;first commit&amp;quot;
+git remote add origin https://github.com/xxx/username.github.io.git
+git push -u origin master
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;至此所有源文档就都push到Github上了。然而此时Github对待这些源文档跟其他任何普通的repository中的代码并没有任何不同，并不会将public子目录中的网页托管在Github Pages上。&lt;/p&gt;
+&lt;p&gt;参见Hugo官方文档，可以选择以下两种方式让Github Pages加载我们想要托管的/public子目录中的网页：&lt;/p&gt;
+&lt;p&gt;&amp;ndash; 配置Hugo将网页生成在名为/docs的子目录中，然后直接push到master branch
+&amp;ndash; 仍然使用默认的/public子目录存储网页，再单独建立一个gh-pages branch&lt;/p&gt;
+&lt;p&gt;第一种方案的好处在于一次push即可将源文档和对应生成的网页文档都发布到Github，操作非常简单。所需要的仅是在config.toml中添加如下一行配置，使得生成的网页默认保存在/docs子目录下。这种方式管理简单，一目了然，所以直接用了这种方式。如果需要用到第二种方式，可以查阅相关文献，此处不做记录。&lt;/p&gt;
+&lt;p&gt;自此运行hugo命令后生成的网页文件将保存在/docs子目录下。将所有文档push到Github的master branch，进入Github对应repository的Settings标签菜单，在GitHub Pages选项的Source栏选择master branch /docs folder:见前面域名配置的图。等待片刻即可访问域名看到之前用Hugo生成的网页了。&lt;/p&gt;
+&lt;h2 id=&#34;后记&#34;&gt;后记&lt;/h2&gt;
+&lt;p&gt;至此我的博客搭建记录就完成了，基本满足了我写文章的各项需求。也作为成长的一个新起点吧，什么事情都要从动起来开始，加油！&lt;/p&gt;
 </description>
       
     </item>
