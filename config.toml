@@ -31,26 +31,62 @@ defaultContentLanguage = "zh-cn"           # Default language to use
   priority = 0.5
   filename = "sitemap.xml"
 
-[[menu.main]]             # config your menu              # 配置目录
-  name = "首页"
+[[languages.en.menu.main]]
+  name = "Home"
   weight = 10
   identifier = "home"
   url = "/"
-[[menu.main]]
-  name = "归档"
+
+[[languages.en.menu.main]]
+  name = "Docs"
+  weight = 11
+  identifier = "docs"
+  url = "/categories/docs/"
+  
+[[languages.en.menu.main]]
+  name = "Archives"
   weight = 20
   identifier = "archives"
   url = "/post/"
-[[menu.main]]
-  name = "标签"
+[[languages.en.menu.main]]
+  name = "Tags"
   weight = 30
   identifier = "tags"
   url = "/tags/"
-[[menu.main]]
-  name = "分类"
+[[languages.en.menu.main]]
+  name = "Categories"
   weight = 40
   identifier = "categories"
   url = "/categories/"
+[[languages.en.menu.main]]
+  name = "external-link"
+  weight = 50
+  url = "https://gohugo.io"
+
+[[languages.zh-cn.menu.main]]
+  name = "主页"
+  weight = 10
+  identifier = "home"
+  url = "zh-cn/"
+[[languages.zh-cn.menu.main]]
+  name = "归档"
+  weight = 20
+  identifier = "archives"
+  url = "zh-cn/post/"
+[[languages.zh-cn.menu.main]]
+  name = "标签"
+  weight = 30
+  identifier = "tags"
+  url = "zh-cn/tags/"
+[[languages.zh-cn.menu.main]]
+  name = "分类"
+  weight = 40
+  identifier = "categories"
+  url = "zh-cn/categories/"
+#[[languages.zh-cn.menu.main]]
+# name = "外部链接"
+#  weight = 50
+#  url = "https://gohugo.io"
 
 [params]
   since = "2021"            # Site creation time          # 站点建立时间

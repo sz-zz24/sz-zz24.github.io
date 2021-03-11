@@ -20,7 +20,7 @@ mathjax: true
 
 为了记录自己的东西，我开始调研各种博客平台，发现github可以直接托管博客，简直不要太爽。在其他平台直接写自己的博客确实可以省掉不少麻烦，不用自己折腾。但是，用git有好几个方面的优势：第一，不用额外开一个账号，各种平台的账号太麻烦了，能少一个是一个。第二，可以直接用代码来管理自己的网站，随意div，非常酷。第三，完全免费，不需要购买服务器，也不需要自己担心环境/系统维护和文件存储等一系列麻烦的事情。基于这些原因，于是我开始了使用git pages搭建个人博客之旅。网上教程也比较多，但是中间还是踩过一些坑，下面也来记录一下自己搭建的整个过程。
 ## 如何使用GitHub Pages
-首先，你得有一个github的账号，然后在个人主页创建一个新的repository.进入页面后，在 Repository name 的位置填写域名，格式是username.gitHub.io.其中username就是你的github账号，这个地方必须是这样的格式，否则网站不会生效。
+首先，你得有一个github的账号，然后在个人主页创建一个新的repository.进入页面后，在repository name的位置填写域名，格式是username.gitHub.io.其中username就是你的github账号，这个地方必须是这样的格式，否则网站不会生效。
 
 创建成功之后，你可以在右上角的settings里面的github pages的选项，选择一个github官方提供的主题，选择好之后commit, github就会帮你生成网站，然后你在浏览器里面输入username.GitHub.io就可以看到效果了。当然，这个只是最简单的第一步，如果你想要做一个内容丰富的博客，我们接着往下看。
 ## 配置自定义域名
@@ -40,7 +40,7 @@ github pages提供免费为自定义域名开启HTTPS的功能，并且大大简
 
 **域名配置**
 
-域名买好之后，就可以开始配置域名转发到你自己的网站了。找到我的域名，在DNS解析里添加一条解析记录，例如我选择添加子域名z24z.com通过CNAME的方式指向我刚刚自定义的git pages域名sz-zz24.gitHub.io（ping一下它对应的ip地址）。添加完成后等待dns解析的生效（dns的解析记录生效到全球可能需要几分钟时间）。
+域名买好之后，就可以开始配置域名转发到你自己的网站了。找到我的域名，在dns解析里添加一条解析记录，例如我选择添加子域名z24z.com通过CNAME的方式指向我刚刚自定义的git pages域名sz-zz24.gitHub.io（ping一下它对应的ip地址）。添加完成后等待dns解析的生效（dns的解析记录生效到全球可能需要几分钟时间）。
 
 ![域名注册](/blog/2021/tencent_dns_2.png)
 
@@ -54,7 +54,7 @@ github pages提供免费为自定义域名开启HTTPS的功能，并且大大简
 
 **环境准备**
 
-首先，安装hugo：初步使用hugo的话，只需要跟随官网的文档过一遍Quick Start就可以了解基本的安装、使用方法了。这里根据我自己的经历也进行简单的说明。在Mac系统，通过包管理工具Homebrew可以非常简单的安装hugo。
+首先，安装hugo：初步使用hugo的话，只需要跟随官网的文档过一遍quick start就可以了解基本的安装、使用方法了。这里根据我自己的经历也进行简单的说明。在mac系统，通过包管理工具homebrew可以非常简单的安装hugo。
 ```
 brew install hugo
 ```
@@ -79,7 +79,7 @@ hugo new site myblog
 ```
 hugo new posts/first-post.md
 ```
-在content目录中会自动以archetypes/default.md为模板在content/posts目录下生成一篇名为first-post.md的文章草稿。或者直接在content/<CATEGORY>/<FILE>.<FORMAT>里面手动创建。在这里建议使用Hugo的new命令创建，因为根据主题不同，使用new命令创建的文件会包含简单的模版框架。例如：
+在content目录中会自动以archetypes/default.md为模板在content/posts目录下生成一篇名为first-post.md的文章草稿。或者直接在content里面手动创建mardown文档或者其他类型的内容。在这里建议使用hugo的new命令创建，因为根据主题不同，使用new命令创建的文件会包含简单的模版框架。例如：
 ```
 ---
 title: my-first-post
@@ -144,7 +144,7 @@ git push -u origin master
 
 第一种方案的好处在于一次push即可将源文档和对应生成的网页文档都发布到github，操作非常简单。所需要的仅是在config.toml中添加如下一行配置，使得生成的网页默认保存在/docs子目录下。这种方式管理简单，一目了然，所以直接用了这种方式。如果需要用到第二种方式，可以查阅相关文献，此处不做记录。
 
-自此运行hugo命令后生成的网页文件将保存在/docs子目录下。将所有文档push到Github的master branch，进入github对应repository的settings标签菜单，在gitHub pages选项的Source栏选择master branch /docs folder, 详情见前面域名配置的图。等待片刻即可访问域名看到之前用hugo生成的网页了。
+自此运行hugo命令后生成的网页文件将保存在/docs子目录下。将所有文档push到github的master branch，进入github对应repository的settings标签菜单，在github pages选项的source栏选择master branch /docs folder, 详情见前面域名配置的图。等待片刻即可访问域名看到之前用hugo生成的网页了。
 
 ## 后记
 至此我的博客搭建记录就完成了，基本满足了我写文章的各项需求。也作为成长的一个新起点吧，什么事情都要从动起来开始，加油！
