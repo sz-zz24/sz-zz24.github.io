@@ -42,7 +42,7 @@ defaultContentLanguage = "zh-cn"           # Default language to use
   weight = 11
   identifier = "docs"
   url = "/categories/docs/"
-  
+
 [[languages.en.menu.main]]
   name = "Archives"
   weight = 20
@@ -72,17 +72,17 @@ defaultContentLanguage = "zh-cn"           # Default language to use
   name = "归档"
   weight = 20
   identifier = "archives"
-  url = "zh-cn/post/"
+  url = "/post/"
 [[languages.zh-cn.menu.main]]
   name = "标签"
   weight = 30
   identifier = "tags"
-  url = "zh-cn/tags/"
+  url = "/tags/"
 [[languages.zh-cn.menu.main]]
   name = "分类"
   weight = 40
   identifier = "categories"
-  url = "zh-cn/categories/"
+  url = "/categories/"
 #[[languages.zh-cn.menu.main]]
 # name = "外部链接"
 #  weight = 50
@@ -143,3 +143,9 @@ defaultContentLanguage = "zh-cn"           # Default language to use
   #  s-mastodon = "http://localhost:1313"
   #  t-youtube = "http://localhost:1313"
   #  u-twitch = "http://localhost:1313"
+
+[taxonomies]          #导航设置
+  tag = "tags"
+  category = "categories"
+  # topic = "topics"
+  # series = "series"
