@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="clavenzhang" />
-  <meta name="description" content="插入一张图片测试" />
+  <meta name="description" content="#前言 在互联网大厂工作的第5个年头，危机该来还是要来了。因为公司业务调整，进了业务部门之后，发现外面似乎也那么风调雨顺。其实危机感一直有，但" />
 
   <meta name="keywords" content="Hugo, theme, jane" />
 
@@ -60,23 +60,23 @@
 
 
 <meta property="og:title" content="用Git Pages加Hugo搭建个人博客全记录" />
-<meta property="og:description" content="插入一张图片测试" />
+<meta property="og:description" content="#前言 在互联网大厂工作的第5个年头，危机该来还是要来了。因为公司业务调整，进了业务部门之后，发现外面似乎也那么风调雨顺。其实危机感一直有，但" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://z24z.com/post/github-pages-for-blog/" />
 <meta property="article:published_time" content="2021-03-10T16:01:23+08:00" />
 <meta property="article:modified_time" content="2021-03-10T16:01:23+08:00" />
 <meta itemprop="name" content="用Git Pages加Hugo搭建个人博客全记录">
-<meta itemprop="description" content="插入一张图片测试">
+<meta itemprop="description" content="#前言 在互联网大厂工作的第5个年头，危机该来还是要来了。因为公司业务调整，进了业务部门之后，发现外面似乎也那么风调雨顺。其实危机感一直有，但">
 <meta itemprop="datePublished" content="2021-03-10T16:01:23+08:00" />
 <meta itemprop="dateModified" content="2021-03-10T16:01:23+08:00" />
-<meta itemprop="wordCount" content="8">
+<meta itemprop="wordCount" content="1814">
 
 
 
 <meta itemprop="keywords" content="Git Pages,Hugo,个人博客," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="用Git Pages加Hugo搭建个人博客全记录"/>
-<meta name="twitter:description" content="插入一张图片测试"/>
+<meta name="twitter:description" content="#前言 在互联网大厂工作的第5个年头，危机该来还是要来了。因为公司业务调整，进了业务部门之后，发现外面似乎也那么风调雨顺。其实危机感一直有，但"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -364,8 +364,8 @@
             <a href="https://z24z.com/categories/index/"> index </a>
             
           </div>
-        <span class="more-meta"> 8 words </span>
-          <span class="more-meta"> 1 min read </span>
+        <span class="more-meta"> 1814 words </span>
+          <span class="more-meta"> 4 min read </span>
 
         
         
@@ -386,8 +386,29 @@
 
     
     <div class="post-content">
-      <p>插入一张图片测试</p>
-<p><img src="/blog/2021/1.png" alt="测试图片"></p>
+      <p>#前言
+在互联网大厂工作的第5个年头，危机该来还是要来了。因为公司业务调整，进了业务部门之后，发现外面似乎也那么风调雨顺。其实危机感一直有，但是人都是惰性的，认识到自己的不足，可是如果没有到致命的阶段，都是会保持无动于衷的。总有一些冠冕堂皇的理由来安慰自己，就这样在岁月蹉跎之下，没有成长，每次都在面临考验的时候反问自己，之前这么多的时间都干啥去了。博客是一个非常好的东西，可以不断记录自己的成长过程。以及关键时候，可以找到那些该死的，自己明明之前知道但是现在却怎么也记不起来的东西。好记性不如烂笔头是有科学依据的，人的大脑没有办法容纳那么多实时的/短期的和长期的记忆数据。有记录的东西，可以快速唤醒大脑内部沉睡的记忆。
+为了记录自己的东西，我开始调研各种博客平台，发现github可以直接托管博客，简直不要太爽。在其他平台直接写自己的博客确实可以省掉不少麻烦，不用自己折腾。但是，用git有好几个方面的优势：第一，不用额外开一个账号，各种平台的账号太麻烦了，能少一个是一个。第二，可以直接用代码来管理自己的网站，随意DIV，非常酷。第三，完全免费，不需要购买服务器，也不需要自己担心环境/系统维护和文件存储等一系列麻烦的事情。基于这些原因，于是我开始了使用git pages搭建个人博客之旅。网上教程也比较多，但是中间还是踩过一些坑，下面也来记录一下自己搭建的整个过程。</p>
+<p>#如何使用GitHub Pages
+首先，你得有一个github的账号，然后在个人主页创建一个新的repository.进入页面后，在 Repository name 的位置填写域名，格式是username.GitHub.io.其中username就是你的github账号，这个地方必须是这样的格式，否则网站不会生效。
+创建成功之后，你可以在右上角的settings里面的github pages的选项，选择一个github官方提供的主题，选择好之后commit, github就会帮你生成网站，然后你在浏览器里面输入username.GitHub.io就可以看到效果了。当然，这个只是最简单的第一步，如果你想要做一个内容丰富的博客，我们接着往下看。</p>
+<p>#配置自定义域名
+##购买自己的域名
+github pages提供免费为自定义域名开启HTTPS的功能，并且大大简化了操作的流程，现在用户已经不需要自己提供证书，只需要将自己的域名使用CNAME的方式指向自己的GitHub Pages域名即可。这个地方很多教程都说的不清楚，直接跳过了需要自己购买域名的这一步，让人很是摸不着头脑，可能也跟我自己的经验有关系，因为之前没有买过，所以不太懂。可以去各种云服务提供商，比如腾讯/华为/阿里等，在他们的域名注册服务页面选择自己喜欢的域名，进行注册，以腾讯云为例：
+<strong>进入注册页面</strong>
+<img src="/blog/2021/tencent_dns.png" alt="域名注册">
+<strong>查询域名</strong>
+<img src="/blog/2021/tencent_dns_1.png" alt="域名注册">
+这里面包含了各种后缀的顶级域名的注册情况，你可以根据自己的情况来进行购买，一般购买.com和.net应该就差不多了。这个地方是真的头疼，很多域名都被抢注了，稍微有点含义的词几乎都没有了。当时，我光注册域名这一块就花了一天时间，汗。
+<strong>域名配置</strong>
+域名买好之后，就可以开始配置域名转发到你自己的网站了。找到我的域名，在DNS解析里添加一条解析记录，例如我选择添加子域名z24z.com通过CNAME的方式指向我刚刚自定义的GitHub Pages域名sz-zz24.GitHub.io（ping一下它对应的ip地址）。添加完成后等待DNS解析的生效（DNS的解析记录生效到全球可能需要几分钟时间）。
+<img src="/blog/2021/tencent_dns_2.png" alt="域名注册">
+经过上面的配置，之后重新回到最开始进入过的settings界面，找到gitHub pages的设置，在custom domian里面填入我们刚刚建立的子域名，点击保存。保存后gitHub需要一定的时间生成证书并确认域名的解析是否正常，我们只需要耐心的等待即可，成功后显示结果如下：
+<img src="/blog/2021/github_pages.png" alt="github_pages">
+然后，你就可以在网站里面输入你的域名，然后看到网站的效果了。这样，网站代码托管就完成了。接下来，我们看下怎么样来构建个人的博客内容。</p>
+<p>#构建网站
+我们需要利用静态模板系统来让生产接管博客的文章的生成，然后才可以安静地专注博客的内容。这里面也有很多的选择，包括jekyll/hexo/hugo等等，最终选择了基于go实现的hugo，首先当然是因为hugo功能强大，不需要有额外的其他组件依赖。同时，还具备主题库丰富，更换简单，网站生成速度快等优势。话不多说，下面我们就来看一下怎么操作。
+##环境准备</p>
 
     </div>
 
