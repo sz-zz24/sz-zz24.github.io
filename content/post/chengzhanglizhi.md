@@ -12,7 +12,7 @@ weight: 1
 # You can also close(false) or open(true) something for this content.
 # P.S. comment can only be closed
 # comment: false
-toc: false
+toc: true
 mathjax: true
 ---
 ## 前言
@@ -31,15 +31,12 @@ mathjax: true
 | 7 | 鲍登学院(Bowdin College) |
 | 8 | 哥伦比亚大学(Columbia University)) |
 
-在这些学校学习，你可能没有任何娱乐生活，只能牺牲睡眠，于是不知不觉就秃头了。
-
-下面，就为大家详细介绍<font color=red>在这些学校学习的“悲惨生活”。</font>
+在这些学校学习，你可能没有任何娱乐生活，只能牺牲睡眠，于是不知不觉就秃头了。下面，就为大家详细介绍在这些学校学习的“悲惨生活”。
 
 **哥大：学累了，在哪都能睡**
 
-在哥伦比亚大学，学生平均每个学期要上4-5节课，许多课程规定的阅读材料通常是每周50-100页，相当于每周要读250-500页，还不用算其他的作业和选读材料。<font color=red>而像文学、现代文明这样的课程，必读书目多达三十多本。</font>
+在哥伦比亚大学，学生平均每个学期要上4-5节课，许多课程规定的阅读材料通常是每周50-100页，相当于每周要读250-500页，还不用算其他的作业和选读材料。<font color=red>而像文学、现代文明这样的课程，必读书目多达三十多本。</font>因此哥大学生常常抱着厚厚的书本怀疑人生，下图来自ins账号sadcolumbiaboys。
 
-因此哥大学生常常抱着厚厚的书本怀疑人生，下图来自ins账号sadcolumbiaboys。
 ![sleeping](/blog/2021/columbia_sleeping.png)
 
 因为学业压力大，睡眠不足.<font color=red>哥大学生练就了“在哪儿都能睡”的特殊技能。</font>
@@ -56,6 +53,7 @@ mathjax: true
 真正诠释了什么叫做“只要足够累，哪儿都能睡”！
 
 **耶鲁：努力高于一切**
+
 大家常听的一句话是“work smarter, not harder”，但在耶鲁这边变成了<font color=red>“work harder, not smarter”。</font>因为他们认为“work smarter”很可能变成抄捷径甚至作弊，会降低教育的价值。所以，在耶鲁大学，大家推崇的就是努力学习。
 
 据耶鲁本科学生说，刚来大学读书时，本来想兼顾学习、睡眠和娱乐，后来随着学习压力变大，生活重心就变成了学习和睡眠，<font color=red>最后就是以学习为主了。</font>每天大概凌晨三点入睡，睡6个小时，又开始新的一天。
@@ -71,7 +69,8 @@ mathjax: true
 
 据在读学生说，<font color=red>CMU的课业压力也很大，一个作业就得写10-20个小时。</font>睡觉很奢侈，经常凌晨3、4点睡或熬夜到天亮。基本没有时间体验学习之外的东西。
 
-而且CMU是学费交完后，随便上课.<font color=red>为了将学费价值最大化就尽可能多的选课，很少不学习。</font>
+而且CMU是学费交完后，随便上课。<font color=red>为了将学费价值最大化，就尽可能多的选课，很少不学习。</font>
+
 ![只有学习](/blog/2021/learn.jpeg)
 
 **MIT：书呆子的天堂**
@@ -86,6 +85,7 @@ mathjax: true
 但有趣的是，在其他学校，nerd通常会被排挤和嘲笑；而在MIT，他们却为成为nerd而感到骄傲。
 
 在MIT nerd实在太普遍，以至于逐渐形成了“nerd pride”的文化，并衍生出了多个周边产品，包括T恤、帽子、笔袋、徽章和水杯等，强化了这样一种专属MIT的身份认同。
+
 ![nerd](/blog/2021/nerd_pride_1.jpeg)
 ![nerd](/blog/2021/nerd_pride_2.jpeg)
 

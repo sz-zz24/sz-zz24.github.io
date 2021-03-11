@@ -3,6 +3,7 @@
 # And see https://gohugo.io/getting-started/configuration/ .
 
 baseURL = "https://z24z.com/"
+#baseURL = "http://localhost:1313/"
 title = "claven's blog"
 enableRobotsTXT = true
 enableEmoji = true
