@@ -12,7 +12,7 @@ weight: 1
 # You can also close(false) or open(true) something for this content.
 # P.S. comment can only be closed
 # comment: false
-toc: false
+# toc: false
 mathjax: true
 ---
 ## 前言
@@ -20,9 +20,9 @@ mathjax: true
 
 为了记录自己的东西，我开始调研各种博客平台，发现github可以直接托管博客，简直不要太爽。在其他平台直接写自己的博客确实可以省掉不少麻烦，不用自己折腾。但是，用git有好几个方面的优势：第一，不用额外开一个账号，各种平台的账号太麻烦了，能少一个是一个。第二，可以直接用代码来管理自己的网站，随意div，非常酷。第三，完全免费，不需要购买服务器，也不需要自己担心环境/系统维护和文件存储等一系列麻烦的事情。基于这些原因，于是我开始了使用git pages搭建个人博客之旅。网上教程也比较多，但是中间还是踩过一些坑，下面也来记录一下自己搭建的整个过程。
 ## 如何使用GitHub Pages
-首先，你得有一个github的账号，然后在个人主页创建一个新的repository.进入页面后，在repository name的位置填写域名，格式是username.gitHub.io.其中username就是你的github账号，这个地方必须是这样的格式，否则网站不会生效。
+首先，你得有一个github的账号，然后在个人主页创建一个新的repository。进入页面后，在repository name的位置填写域名，格式是username.github.io，其中username就是你的github账号，这个地方必须是这样的格式，否则网站不会生效。
 
-创建成功之后，你可以在右上角的settings里面的github pages的选项，选择一个github官方提供的主题，选择好之后commit, github就会帮你生成网站，然后你在浏览器里面输入username.GitHub.io就可以看到效果了。当然，这个只是最简单的第一步，如果你想要做一个内容丰富的博客，我们接着往下看。
+创建成功之后，你可以在右上角的settings里面的github pages的选项，选择一个github官方提供的主题，选择好之后commit, github就会帮你生成网站，然后你在浏览器里面输入username.github.io就可以看到效果了。当然，这个只是最简单的第一步，如果你想要做一个内容丰富的博客，我们接着往下看。
 ## 配置自定义域名
 **购买自己的域名**
 
@@ -95,7 +95,7 @@ draft: true
 
 **使用主题**
 
-站点生成之后，如果没有主题，就是空白的文档，这样肯定是不行的。与其他的站点工具不同，Hugo没有默认的主题，需要先添加一个主题才能新建文章。Hugo的官网上有很多的主题可选。选定一个喜欢的主题之后，需要将其下载到myblog文件夹中。在主题说明的页面中点击"download"的按钮，会进入到对应的GitHub页面中。有很多种方式可以将主题文件下载，并放置到myblog/themes/yourtheme文件夹中（yourtheme是主题的名称，可以在该主题的GitHub仓库的页面看到）。在这里为了使用git对站点进行管理，实现在不同的设备上方便的对站点进行维护，我们使用git的submodule功能。
+站点生成之后，如果没有主题，就是空白的文档，这样肯定是不行的。与其他的站点工具不同，hugo没有默认的主题，需要先添加一个主题才能新建文章。hugo的官网上有很多的主题可选。选定一个喜欢的主题之后，需要将其下载到myblog文件夹中。在主题说明的页面中点击"download"的按钮，会进入到对应的github页面中。有很多种方式可以将主题文件下载，并放置到myblog/themes/yourtheme文件夹中（yourtheme是主题的名称，可以在该主题的github仓库的页面看到）。在这里为了使用git对站点进行管理，实现在不同的设备上方便的对站点进行维护，我们使用git的submodule功能。
 ```
 cd myblog
 git init
@@ -142,7 +142,11 @@ git push -u origin master
 * 配置Hugo将网页生成在名为/docs的子目录中，然后直接push到master branch
 * 仍然使用默认的/public子目录存储网页，再单独建立一个gh-pages branch
 
-第一种方案的好处在于一次push即可将源文档和对应生成的网页文档都发布到github，操作非常简单。所需要的仅是在config.toml中添加如下一行配置，使得生成的网页默认保存在/docs子目录下。这种方式管理简单，一目了然，所以直接用了这种方式。如果需要用到第二种方式，可以查阅相关文献，此处不做记录。
+第一种方案的好处在于一次push即可将源文档和对应生成的网页文档都发布到github，操作非常简单。所需要的仅是在config.toml中添加如下一行配置：
+```
+publishDir = "docs"
+```
+使得生成的网页默认保存在/docs子目录下。这种方式管理简单，一目了然，所以直接用了这种方式。如果需要用到第二种方式，可以查阅相关文献，此处不做记录。
 
 自此运行hugo命令后生成的网页文件将保存在/docs子目录下。将所有文档push到github的master branch，进入github对应repository的settings标签菜单，在github pages选项的source栏选择master branch /docs folder, 详情见前面域名配置的图。等待片刻即可访问域名看到之前用hugo生成的网页了。
 
