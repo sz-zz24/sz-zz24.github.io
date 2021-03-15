@@ -6,17 +6,47 @@
     <description>Recent content on claven&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 12 Mar 2021 16:01:23 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 15 Mar 2021 16:01:23 +0800</lastBuildDate>
     
         <atom:link href="https://z24z.com/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>leetcode算法简单题笔记</title>
+      <link>https://z24z.com/post/2021/algorithm-easy/</link>
+      <pubDate>Mon, 15 Mar 2021 16:01:23 +0800</pubDate>
+      
+      <guid>https://z24z.com/post/2021/algorithm-easy/</guid>
+      
+        <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;算法，一直被认为是编程领域内的明珠。在很长一段时间里，由于错误的认知，觉得工作中实际上用到算法的概率比较小，可能也真的是做业务的时间太长了，整天被进度/bug/交付等内容充斥，能做到快速功能实现和交付，也就没有那么多心思去想其他的东西了。近来稍闲，于是抽点时间刷一刷算法看看，对于我这种大学和研究生阶段都没有经历过ACM，也极少在工作中留意雕琢自己代码的人来说，简单题都是非常费劲的，而且可能年纪上来了，脑子不如年轻那会儿好使。于是，我打算采用多刷几次的策略，同时把这当中一些值得记录的东西写下来，把它真正变成自己的知识。&lt;/p&gt;
+&lt;h2 id=&#34;基础排序算法&#34;&gt;基础排序算法&lt;/h2&gt;
+&lt;p&gt;排序算法两大类：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;比较类排序：通过比较来决定元素间的相对次序，由于其时间复杂度不能突破O(nlogn)，因此也称为非线性时间比较类排序。&lt;/li&gt;
+&lt;li&gt;非比较类排序：不通过比较来决定元素间的相对次序，它可以突破基于比较排序的时间下界，以线性时间运行，因此也称为线性时间非比较类排序。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://z24z.com/blog/2021/sort.png&#34; alt=&#34;排序&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;8计数排序counting-sort&#34;&gt;8、计数排序(Counting Sort)&lt;/h2&gt;
+&lt;p&gt;计数排序不是基于比较的排序算法，其核心在于将输入的数据值转化为键存储在额外开辟的数组空间中。 作为一种线性时间复杂度的排序，计数排序要求输入的数据必须是有确定范围的整数。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;算法描述&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1111111&lt;/li&gt;
+&lt;li&gt;2222222&lt;/li&gt;
+&lt;li&gt;333333&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;动图演示&lt;/strong&gt;
+&lt;img src=&#34;https://z24z.com/blog/2021/counting.gif&#34; alt=&#34;计数排序&#34;&gt;&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
       <title>学习和读书总结</title>
-      <link>https://z24z.com/post/summary/</link>
+      <link>https://z24z.com/post/2021/summary/</link>
       <pubDate>Fri, 12 Mar 2021 16:01:23 +0800</pubDate>
       
-      <guid>https://z24z.com/post/summary/</guid>
+      <guid>https://z24z.com/post/2021/summary/</guid>
       
         <description>&lt;h2 id=&#34;书&#34;&gt;书&lt;/h2&gt;
 &lt;table&gt;
@@ -80,10 +110,10 @@
     
     <item>
       <title>美国名校的残酷真相</title>
-      <link>https://z24z.com/post/chengzhanglizhi/</link>
+      <link>https://z24z.com/post/2021/inspiration/</link>
       <pubDate>Thu, 11 Mar 2021 16:01:23 +0800</pubDate>
       
-      <guid>https://z24z.com/post/chengzhanglizhi/</guid>
+      <guid>https://z24z.com/post/2021/inspiration/</guid>
       
         <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;之前看到过的一则关于美国顶尖名校学生的新闻，虽然它是招生机构写的，有软文的嫌疑，但是里面传达的精神一直是我内心里面认可的价值观，所以自己码一遍记录一下，希望可以持续激励自己前进。&lt;/p&gt;
@@ -175,10 +205,10 @@
     
     <item>
       <title>用Git Pages加Hugo搭建个人博客全记录</title>
-      <link>https://z24z.com/post/github-pages-for-blog/</link>
+      <link>https://z24z.com/post/2021/github-pages-for-blog/</link>
       <pubDate>Wed, 10 Mar 2021 16:01:23 +0800</pubDate>
       
-      <guid>https://z24z.com/post/github-pages-for-blog/</guid>
+      <guid>https://z24z.com/post/2021/github-pages-for-blog/</guid>
       
         <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;在互联网大厂工作的第5个年头，危机该来还是要来了。因为公司业务调整，进了业务部门之后，发现外面似乎也那么风调雨顺。其实危机感一直有，但是人都是惰性的，认识到自己的不足，可是如果没有到致命的阶段，都是会保持无动于衷的。总有一些冠冕堂皇的理由来安慰自己，就这样在岁月蹉跎之下，没有成长，每次都在面临考验的时候反问自己，之前这么多的时间都干啥去了。博客是一个非常好的东西，可以不断记录自己的成长过程。以及关键时候，可以找到那些该死的，自己明明之前知道但是现在却怎么也记不起来的东西。好记性不如烂笔头是有科学依据的，人的大脑没有办法容纳那么多实时的/短期的和长期的记忆数据。有记录的东西，可以快速唤醒大脑内部沉睡的记忆。&lt;/p&gt;
@@ -299,6 +329,18 @@ git push -u origin master
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这也是一种加功能菜单的方法，需要的时候可以用起来。&lt;/p&gt;
 &lt;h2 id=&#34;后记&#34;&gt;后记&lt;/h2&gt;
 &lt;p&gt;至此我的博客搭建记录就完成了，基本满足了我写文章的各项需求。也作为成长的一个新起点吧，什么事情都要从动起来开始，加油！&lt;/p&gt;
+</description>
+      
+    </item>
+    
+    <item>
+      <title>Jane 主题预览</title>
+      <link>https://z24z.com/post/template/jane-theme-preview/</link>
+      <pubDate>Tue, 06 Mar 2018 16:01:23 +0800</pubDate>
+      
+      <guid>https://z24z.com/post/template/jane-theme-preview/</guid>
+      
+        <description>&lt;p&gt;主题预览,内容有待填充。&lt;/p&gt;
 </description>
       
     </item>

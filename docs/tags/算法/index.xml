@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>算法 on claven&#39;s blog</title>
+    <link>https://z24z.com/tags/%E7%AE%97%E6%B3%95/</link>
+    <description>Recent content in 算法 on claven&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 15 Mar 2021 16:01:23 +0800</lastBuildDate><atom:link href="https://z24z.com/tags/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>leetcode算法简单题笔记</title>
+      <link>https://z24z.com/post/2021/algorithm-easy/</link>
+      <pubDate>Mon, 15 Mar 2021 16:01:23 +0800</pubDate>
+      
+      <guid>https://z24z.com/post/2021/algorithm-easy/</guid>
+      <description>前言 算法，一直被认为是编程领域内的明珠。在很长一段时间里，由于错误的认知，觉得工作中实际上用到算法的概率比较小，可能也真的是做业务的时间太长</description>
+    </item>
+    
+  </channel>
+</rss>

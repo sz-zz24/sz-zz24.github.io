@@ -6,32 +6,50 @@
     <description>Recent content in Posts on claven&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 12 Mar 2021 16:01:23 +0800</lastBuildDate><atom:link href="https://z24z.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 15 Mar 2021 16:01:23 +0800</lastBuildDate><atom:link href="https://z24z.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>leetcode算法简单题笔记</title>
+      <link>https://z24z.com/post/2021/algorithm-easy/</link>
+      <pubDate>Mon, 15 Mar 2021 16:01:23 +0800</pubDate>
+      
+      <guid>https://z24z.com/post/2021/algorithm-easy/</guid>
+      <description>前言 算法，一直被认为是编程领域内的明珠。在很长一段时间里，由于错误的认知，觉得工作中实际上用到算法的概率比较小，可能也真的是做业务的时间太长</description>
+    </item>
+    
     <item>
       <title>学习和读书总结</title>
-      <link>https://z24z.com/post/summary/</link>
+      <link>https://z24z.com/post/2021/summary/</link>
       <pubDate>Fri, 12 Mar 2021 16:01:23 +0800</pubDate>
       
-      <guid>https://z24z.com/post/summary/</guid>
+      <guid>https://z24z.com/post/2021/summary/</guid>
       <description>书 开始时间 书名 作者 进度 评价 2021/03/08 社会性动物 Elliot Aronson 30 推荐 心理学的经典著作，美国社会心理学的圣经。由于里面有很多专业性的术语，读的是翻译版，有英文水平</description>
     </item>
     
     <item>
       <title>美国名校的残酷真相</title>
-      <link>https://z24z.com/post/chengzhanglizhi/</link>
+      <link>https://z24z.com/post/2021/inspiration/</link>
       <pubDate>Thu, 11 Mar 2021 16:01:23 +0800</pubDate>
       
-      <guid>https://z24z.com/post/chengzhanglizhi/</guid>
+      <guid>https://z24z.com/post/2021/inspiration/</guid>
       <description>前言 之前看到过的一则关于美国顶尖名校学生的新闻，虽然它是招生机构写的，有软文的嫌疑，但是里面传达的精神一直是我内心里面认可的价值观，所以自己</description>
     </item>
     
     <item>
       <title>用Git Pages加Hugo搭建个人博客全记录</title>
-      <link>https://z24z.com/post/github-pages-for-blog/</link>
+      <link>https://z24z.com/post/2021/github-pages-for-blog/</link>
       <pubDate>Wed, 10 Mar 2021 16:01:23 +0800</pubDate>
       
-      <guid>https://z24z.com/post/github-pages-for-blog/</guid>
+      <guid>https://z24z.com/post/2021/github-pages-for-blog/</guid>
       <description>前言 在互联网大厂工作的第5个年头，危机该来还是要来了。因为公司业务调整，进了业务部门之后，发现外面似乎也那么风调雨顺。其实危机感一直有，但是</description>
+    </item>
+    
+    <item>
+      <title>Jane 主题预览</title>
+      <link>https://z24z.com/post/template/jane-theme-preview/</link>
+      <pubDate>Tue, 06 Mar 2018 16:01:23 +0800</pubDate>
+      
+      <guid>https://z24z.com/post/template/jane-theme-preview/</guid>
+      <description>主题预览,内容有待填充。</description>
     </item>
     
   </channel>

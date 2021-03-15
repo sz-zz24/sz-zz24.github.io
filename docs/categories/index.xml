@@ -6,11 +6,11 @@
     <description>Recent content in Categories on claven&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 12 Mar 2021 16:01:23 +0800</lastBuildDate><atom:link href="https://z24z.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 15 Mar 2021 16:01:23 +0800</lastBuildDate><atom:link href="https://z24z.com/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>知识总结</title>
       <link>https://z24z.com/categories/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/</link>
-      <pubDate>Fri, 12 Mar 2021 16:01:23 +0800</pubDate>
+      <pubDate>Mon, 15 Mar 2021 16:01:23 +0800</pubDate>
       
       <guid>https://z24z.com/categories/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/</guid>
       <description></description>
@@ -31,6 +31,24 @@
       <pubDate>Wed, 10 Mar 2021 16:01:23 +0800</pubDate>
       
       <guid>https://z24z.com/categories/%E7%94%9F%E6%B4%BB%E6%9D%82%E8%AE%B0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>index</title>
+      <link>https://z24z.com/categories/index/</link>
+      <pubDate>Tue, 06 Mar 2018 16:01:23 +0800</pubDate>
+      
+      <guid>https://z24z.com/categories/index/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>shortcodes</title>
+      <link>https://z24z.com/categories/shortcodes/</link>
+      <pubDate>Tue, 06 Mar 2018 16:01:23 +0800</pubDate>
+      
+      <guid>https://z24z.com/categories/shortcodes/</guid>
       <description></description>
     </item>
     
