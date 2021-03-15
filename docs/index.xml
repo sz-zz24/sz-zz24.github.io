@@ -6,10 +6,77 @@
     <description>Recent content on claven&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 11 Mar 2021 16:01:23 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 12 Mar 2021 16:01:23 +0800</lastBuildDate>
     
         <atom:link href="https://z24z.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>学习和读书总结</title>
+      <link>https://z24z.com/post/summary/</link>
+      <pubDate>Fri, 12 Mar 2021 16:01:23 +0800</pubDate>
+      
+      <guid>https://z24z.com/post/summary/</guid>
+      
+        <description>&lt;h2 id=&#34;书&#34;&gt;书&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;开始时间&lt;/th&gt;
+&lt;th&gt;书名&lt;/th&gt;
+&lt;th&gt;作者&lt;/th&gt;
+&lt;th&gt;进度&lt;/th&gt;
+&lt;th&gt;评价&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;2021/03/08&lt;/td&gt;
+&lt;td&gt;社会性动物&lt;/td&gt;
+&lt;td&gt;Elliot Aronson&lt;/td&gt;
+&lt;td&gt;30&lt;/td&gt;
+&lt;td&gt;推荐  心理学的经典著作，美国社会心理学的圣经。由于里面有很多专业性的术语，读的是翻译版，有英文水平强的可以看原版。社会是由具备社会性的人组成的，其中的个体无时不刻会受到群体内其他个体的影响。了解自己，了解自己所在的社会环境。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2021/03/02&lt;/td&gt;
+&lt;td&gt;暗时间&lt;/td&gt;
+&lt;td&gt;刘未鹏&lt;/td&gt;
+&lt;td&gt;100&lt;/td&gt;
+&lt;td&gt;极力推荐  可以看得出来，作者是一个挺有意思的人，书里面涉及了心理学/编程以及个人思考的东西，特别是关于心理学认知和个人成长的部分，非常精彩。能把读书笔记总结成自己的一本书，并且作为知识来进行传播，同时还不乏深度，可见功力之不一般。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;视频&#34;&gt;视频&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;开始时间&lt;/th&gt;
+&lt;th&gt;课程名&lt;/th&gt;
+&lt;th&gt;来源&lt;/th&gt;
+&lt;th&gt;进度&lt;/th&gt;
+&lt;th&gt;评价&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;2021/03/15&lt;/td&gt;
+&lt;td&gt;Learning How to Learn&lt;/td&gt;
+&lt;td&gt;Barbara Okaley&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;进行中&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2021/02/01&lt;/td&gt;
+&lt;td&gt;Introduction to psychology&lt;/td&gt;
+&lt;td&gt;Yale University&lt;/td&gt;
+&lt;td&gt;50&lt;/td&gt;
+&lt;td&gt;极力推荐  耶鲁大学心理学入门课程，可以提前熟悉一些心理学术语的英文。学心理学知识的同时，锻炼英文听读能力。课程涵盖了心理学领域包括学派、基础理论以及脑和认知方面的内容，非常值的一看。顺便，推荐一下吴恩达创建的课程学习网站，Coursera&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+      
+    </item>
     
     <item>
       <title>美国名校的残酷真相</title>
@@ -239,19 +306,24 @@ git push -u origin master
     <item>
       <title>关于</title>
       <link>https://z24z.com/about/</link>
-      <pubDate>Sun, 20 Aug 2017 21:38:52 +0800</pubDate>
+      <pubDate>Wed, 10 Mar 2021 21:38:52 +0800</pubDate>
       
       <guid>https://z24z.com/about/</guid>
       
-        <description>&lt;p&gt;Hugo is a static site engine written in Go.&lt;/p&gt;
-&lt;p&gt;It makes use of a variety of open source projects including:&lt;/p&gt;
+        <description>&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;自律是一种最高级的修行。唯愿，从渺小启程，不负岁月！&lt;/p&gt;
+&lt;h2 id=&#34;关于我&#34;&gt;关于我&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/spf13/cobra&#34;&gt;Cobra&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/spf13/viper&#34;&gt;Viper&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/spf13/jWalterWeatherman&#34;&gt;J Walter Weatherman&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/spf13/cast&#34;&gt;Cast&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;头部互联网公司高级螺丝钉，主要技能点：golang/微服务/k8s/分布式系统。&lt;/li&gt;
+&lt;li&gt;对心理学/认知科学/脑科学有非常浓烈的兴趣，计划在码代码之余，多涉猎相关的知识，希望不会知难而退。&lt;/li&gt;
+&lt;li&gt;热爱运动，爬山/游泳/健身/各种球类运动都能玩，有时间的前提下，每周至少打两次篮球，虎扑资深只看帖用户。&lt;/li&gt;
+&lt;li&gt;自我认知专注力和自律性不够，容易懈怠，仰望伟人们如科比、乔布斯和马斯克等所具备的极致自我约束力，希望可以借助偶像们的力量不断鞭策自己，勉励前行！&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Learn more and contribute on &lt;a href=&#34;https://github.com/gohugoio&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;关于本站&#34;&gt;关于本站&lt;/h2&gt;
+&lt;p&gt;本站是采用hugo生成的静态站点，所使用的主题是hugo-theme-jane，然后按照个人的需求进行一些修改，托管在github上。关于如何建站以及主题配置和使用的相关操作，本人也是把整个过程都记录了一下，详情见相关博客内容。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;建站目的&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;人到而立之年，被生活逐渐磨平了懵懂少年的棱角。对生活、对事业、对个人等方面也有了一些自己不同的认识，也以近来工作上没有那么忙为契机，开始捣鼓一些自己喜欢的东西。年少的时候，很多东西都只是浅尝辄止，也没有记录的习惯，很多东西都流于表面了，没有任何收获和沉淀。创建本站的预想是，会记录个人的心得，知识沉淀，读书笔记等等，希望能产生一些真正有价值的东西。&lt;/p&gt;
 </description>
       
     </item>

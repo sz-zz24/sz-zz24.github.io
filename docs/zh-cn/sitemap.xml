@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://z24z.com/post/summary/</loc>
+    <lastmod>2021-03-12T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://z24z.com/post/chengzhanglizhi/</loc>
     <lastmod>2021-03-11T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -17,35 +24,63 @@
   
   <url>
     <loc>https://z24z.com/about/</loc>
-    <lastmod>2017-08-28T21:41:52+08:00</lastmod>
+    <lastmod>2021-03-12T21:41:52+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://z24z.com/categories/</loc>
-    <lastmod>2021-03-11T16:01:23+08:00</lastmod>
+    <lastmod>2021-03-12T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://z24z.com/</loc>
-    <lastmod>2021-03-11T16:01:23+08:00</lastmod>
+    <lastmod>2021-03-12T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://z24z.com/post/</loc>
-    <lastmod>2021-03-11T16:01:23+08:00</lastmod>
+    <lastmod>2021-03-12T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://z24z.com/tags/</loc>
-    <lastmod>2021-03-11T16:01:23+08:00</lastmod>
+    <lastmod>2021-03-12T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://z24z.com/tags/%E6%80%BB%E7%BB%93/</loc>
+    <lastmod>2021-03-12T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://z24z.com/categories/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/</loc>
+    <lastmod>2021-03-12T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://z24z.com/tags/%E8%AF%BB%E4%B9%A6/</loc>
+    <lastmod>2021-03-12T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://z24z.com/tags/%E8%AF%BE%E7%A8%8B/</loc>
+    <lastmod>2021-03-12T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
