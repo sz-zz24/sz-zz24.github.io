@@ -334,18 +334,6 @@ git push -u origin master
     </item>
     
     <item>
-      <title>Jane 主题预览</title>
-      <link>https://z24z.com/post/template/jane-theme-preview/</link>
-      <pubDate>Tue, 06 Mar 2018 16:01:23 +0800</pubDate>
-      
-      <guid>https://z24z.com/post/template/jane-theme-preview/</guid>
-      
-        <description>&lt;p&gt;主题预览,内容有待填充。&lt;/p&gt;
-</description>
-      
-    </item>
-    
-    <item>
       <title>关于</title>
       <link>https://z24z.com/about/</link>
       <pubDate>Wed, 10 Mar 2021 21:38:52 +0800</pubDate>
