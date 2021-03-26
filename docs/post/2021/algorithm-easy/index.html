@@ -69,7 +69,7 @@
 <meta itemprop="description" content="前言 算法，一直被认为是编程领域内的明珠。在很长一段时间里，由于错误的认知，觉得工作中实际上用到算法的概率比较小，可能也真的是做业务的时间太长">
 <meta itemprop="datePublished" content="2021-03-15T16:01:23+08:00" />
 <meta itemprop="dateModified" content="2021-03-15T16:01:23+08:00" />
-<meta itemprop="wordCount" content="927">
+<meta itemprop="wordCount" content="1192">
 
 
 
@@ -306,8 +306,8 @@
             <a href="https://z24z.com/categories/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"> 知识总结 </a>
             
           </div>
-        <span class="more-meta"> 约 927 字 </span>
-          <span class="more-meta"> 预计阅读 2 分钟 </span>
+        <span class="more-meta"> 约 1192 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
 
         
         
@@ -331,6 +331,7 @@
     <li><a href="#前言">前言</a></li>
     <li><a href="#基础算法">基础算法</a></li>
     <li><a href="#概念">概念</a></li>
+    <li><a href="#技巧">技巧</a></li>
     <li><a href="#基础排序算法">基础排序算法</a></li>
     <li><a href="#8计数排序counting-sort">8、计数排序(Counting Sort)</a></li>
   </ul>
@@ -348,7 +349,16 @@
 <p><strong>切比雪夫距离</strong></p>
 <p>二维平面中两个点，可以走横竖斜边的情况下，从一个点到另一个点步数最少的就是切比雪夫距离，即：</p>
 <pre><code>d12 = max(|x1-x2|,|y1-y2|)
-</code></pre><h2 id="基础排序算法">基础排序算法</h2>
+</code></pre><p><strong>布赖恩-克尼根算法</strong></p>
+<p>快速找出一个二进制数num中的1的个数：常规思路是，右移遍历，然后识别最右边的1。可以采用num % 2或者num &amp; 1的方式判断，直到迭代结束。更快速的算法是，像人类直观统计1的个数那样，跳过里面的0。算法是num和num-1做and计算的时候，最右边等于1的比特会被移除。比如：</p>
+<pre><code>num = 10001000
+num - 1 = 10000111
+num &amp; (num - 1) = 10000000
+</code></pre><p><strong>矩阵对角线</strong></p>
+<p>在矩阵对角线上的点满足，x=y或者x+y=len(n)-1，n是矩阵的边长。</p>
+<h2 id="技巧">技巧</h2>
+<p>双指针/快慢指针/哈希表/逆序遍历等，合理利用内置函数。二叉树结构，最常用的是递归方式，分别算左子树和右子树的结果。</p>
+<h2 id="基础排序算法">基础排序算法</h2>
 <p>排序算法两大类：</p>
 <ul>
 <li>比较类排序：通过比较来决定元素间的相对次序，由于其时间复杂度不能突破O(nlogn)，因此也称为非线性时间比较类排序。</li>
@@ -426,6 +436,19 @@
       
       <nav class="post-nav">
         
+          <a class="prev" href="/post/2021/learning-how-to-lean/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">learning-how-to-learn</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
         
           <a class="next" href="/post/2021/summary/">
             <span class="next-text nav-default">学习和读书总结</span>

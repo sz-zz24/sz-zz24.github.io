@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>summary on claven&#39;s blog</title>
+    <link>https://z24z.com/tags/summary/</link>
+    <description>Recent content in summary on claven&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 16 Mar 2021 16:01:23 +0800</lastBuildDate><atom:link href="https://z24z.com/tags/summary/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>learning-how-to-learn</title>
+      <link>https://z24z.com/post/2021/learning-how-to-lean/</link>
+      <pubDate>Tue, 16 Mar 2021 16:01:23 +0800</pubDate>
+      
+      <guid>https://z24z.com/post/2021/learning-how-to-lean/</guid>
+      <description>前言 Coursera课程-学会如何学习的课堂笔记，讲师是来自UCLA的Barbara Okaley：一个文艺女青年通过科学的学习方法成为工程学</description>
+    </item>
+    
+  </channel>
+</rss>
