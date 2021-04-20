@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="zh-cn" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>golang调度器GMP原理 - claven&#39;s blog</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="clavenzhang" />
+  <meta name="description" content="前言 Golang能够具备强大的并发能力，其核心秘诀就是goroutine协程以及通过调度器利用多核的能力，实现强大的并发支持能力。这一篇就来" />
+
+  <meta name="keywords" content="Hugo, theme, jane" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.80.0" />
+
+
+<link rel="canonical" href="https://z24z.com/post/2021/golang-gmp/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.f1e506a781bf25d33ffc18aa6b4e972a965c58049d27d4f92b7db2e9bf28e4bf.css" integrity="sha256-8eUGp4G/JdM//Biqa06XKpZcWASdJ9T5K32y6b8o5L8=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+<meta property="og:title" content="golang调度器GMP原理" />
+<meta property="og:description" content="前言 Golang能够具备强大的并发能力，其核心秘诀就是goroutine协程以及通过调度器利用多核的能力，实现强大的并发支持能力。这一篇就来" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://z24z.com/post/2021/golang-gmp/" />
+<meta property="article:published_time" content="2021-04-16T16:01:23+08:00" />
+<meta property="article:modified_time" content="2021-04-16T16:01:23+08:00" />
+<meta itemprop="name" content="golang调度器GMP原理">
+<meta itemprop="description" content="前言 Golang能够具备强大的并发能力，其核心秘诀就是goroutine协程以及通过调度器利用多核的能力，实现强大的并发支持能力。这一篇就来">
+<meta itemprop="datePublished" content="2021-04-16T16:01:23+08:00" />
+<meta itemprop="dateModified" content="2021-04-16T16:01:23+08:00" />
+<meta itemprop="wordCount" content="4358">
+
+
+
+<meta itemprop="keywords" content="go,GPM,总结," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="golang调度器GMP原理"/>
+<meta name="twitter:description" content="前言 Golang能够具备强大的并发能力，其核心秘诀就是goroutine协程以及通过调度器利用多核的能力，实现强大的并发支持能力。这一篇就来"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Claven's blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://z24z.com/zh-cn/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://z24z.com/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://z24z.com/tags/">标签</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://z24z.com/categories/">分类</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://z24z.com/about/">关于</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      Claven's blog
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://z24z.com/zh-cn/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://z24z.com/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://z24z.com/tags/">标签</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://z24z.com/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://z24z.com/about/">关于</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">golang调度器GMP原理</h1>
+      
+      <div class="post-meta">
+        <time datetime="2021-04-16" class="post-time">
+          2021-04-16
+        </time>
+        <div class="post-category">
+            <a href="https://z24z.com/categories/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"> 知识总结 </a>
+            
+          </div>
+        <span class="more-meta"> 约 4358 字 </span>
+          <span class="more-meta"> 预计阅读 9 分钟 </span>
+
+        
+        
+          <span id="busuanzi_container_page_pv">
+            | 阅读 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#前言">前言</a></li>
+    <li><a href="#进程与线程">进程与线程</a></li>
+    <li><a href="#协程">协程</a></li>
+    <li><a href="#goroutine调度器gmp">Goroutine调度器GMP</a></li>
+    <li><a href="#go调度器调度场景过程全解析">Go调度器调度场景过程全解析</a></li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <h2 id="前言">前言</h2>
+<p>Golang能够具备强大的并发能力，其核心秘诀就是goroutine协程以及通过调度器利用多核的能力，实现强大的并发支持能力。这一篇就来探索一下go调度器GMP的原理，了解并发背后真实的机制。</p>
+<h2 id="进程与线程">进程与线程</h2>
+<p>进程与线程的区别是什么？这是一个老生常谈的问题。处于不同层面对该问题的理解也不太一样。对于用户层面来说，进程就是一块运行起来的程序，线程就是程序里面一些并发的功能。对于操作系统来说，进程是资源分配的最小单位，而线程是CPU调度的最小单位。一个进程可以包含多个线程，线程共享进程拥有的内存空间，只有拥有了线程的的进程才会被CPU执行，所以一个进程最少拥有一个主线程。进程的切换要保存现场的寄存器、栈、代码段和执行位置等信息，而线程切换只需要上下文切换，保存线程执行的上下文即可，更加轻量级。进程面向的主要内容是内存分配管理，而线程主要面向的是CPU调度。</p>
+<p>最早的系统，是串行的，一个CPU同一时间只能执行一个进程或者线程的任务，如果被阻塞，就只能等待。为了最大化利用CPU的能力，将CPU进行工作时间分片，执行完一个时间分片，立马切换到另一个线程。这样就会避免阻塞的问题，但是切换的CPU时间开销依旧被浪费了。同时，CPU需要针对线程设计线程调度器，负责协调多线程之间的同步资源竞争等问题。</p>
+<h2 id="协程">协程</h2>
+<p>即使线程已经比较轻量化了，但是一个线程依旧要占M级的内存，面对海量高并发的场景，依旧会非常吃力。因此，线程被进一步细化为内核态的线程和用户态的线程，相当于两级线程。其中，用户态的部分也被称作协程。协程更加轻量级，由于协程是由用户创建的而非操作系统，所以处于用户栈能感知的范围，操作系统对它并没有感知。</p>
+<p>为什么讲线程相对进程更轻量，而协程相对于线程更轻量。原因是线程能够共享进程的资源，包括：</p>
+<ul>
+<li>内存地址空间</li>
+<li>进程基础信息</li>
+<li>大部分的数据</li>
+<li>打开的文件</li>
+<li>信号处理</li>
+<li>当前工作目录</li>
+<li>用户和用户组属性</li>
+</ul>
+<p>而线程会独自拥有一些信息，包括：</p>
+<ul>
+<li>线程ID</li>
+<li>一系列的寄存器</li>
+<li>栈的局部变量和返回地址</li>
+<li>错误码</li>
+<li>优先级等等</li>
+</ul>
+<p>用户态的线程，协程也是共享线程的堆栈信息，存储的主要信息有：</p>
+<ul>
+<li>执行时候的栈信息</li>
+<li>goroutine的状态</li>
+<li>goroutine的任务函数等等</li>
+</ul>
+<p>简单的来说，其实就是线程只需要关注自己那部分的信息(也就是局部变量)，而不需要关注共享的信息，协程也是一样的原理，所以才会更加轻量级。</p>
+<p><img src="/blog/2021/co-routine.png" alt="co-routine"></p>
+<p>一个线程可以拥有多个协程，每个协程拥有自己的栈空间，协程切换只需要保存协程的上下文(在用户态切换)，开销比内核态的线程切换要小很多，这种机制无疑给更大的并发提供了基础。因为CPU执行的最小单元就是线程，一个协程必须绑定一个线程，才可以被执行。协程可以和线程有多种映射关系，下面来分析一下每一种映射关系的情况。</p>
+<p><strong>1、多对一(N:1)</strong></p>
+<p>一个线程绑定多个协程(其实这里面有点狭义)，指的是所有的协程都绑定在一个线程上。这样做的缺点显而易见：第一，程序用不了硬件的多核加速能力。第二，一旦某个协程阻塞，如果中间没有调度器来进行协调，那其他协程全部无法继续执行下去了。</p>
+<p><strong>2、一对一(1:1)</strong></p>
+<p>这种情况下，就相当于退化为全内核态线程了，协程和线程一对一，协程的创建、删除和切换全部交给CPU来完成，开销非常大。</p>
+<p><strong>3、多对对(M:N)</strong></p>
+<p>多对多的模式是上面两种方式的一种结合，符合实际并发场景的需要。线程由CPU调度，是抢占式的；而协程是由用户态调度，是协作式的。一个协程让出线程之后，才由其他的协程来占用。</p>
+<p><img src="/blog/2021/goroutine.png" alt="goroutine"></p>
+<h2 id="goroutine调度器gmp">Goroutine调度器GMP</h2>
+<p>Go为了提供更容易使用的并发方法，使用了goroutine和channel。一个goroutine只占几个kb的内存，且依靠runtime可以实现灵活调度。那么我们就来看一下goroutine的调度器模型GMP是怎么运转的。首先是含义，GMP分别对应Goroutine/Thread/Processor，即协程、线程和调度器。</p>
+<p><img src="/blog/2021/gmp.png" alt="gmp"></p>
+<p><strong>GMP模型</strong></p>
+<p>线程是运行goroutine的实体，调度器的功能是把可运行的goroutine分配到工作线程上，对于goroutine来说，P就是它的CPU。GMP模型的全局逻辑如下图所示：</p>
+<p><img src="/blog/2021/gmp_1.png" alt="gmp_1"></p>
+<p><strong>全局队列：</strong> 存放等待运行的Goroutine.</p>
+<p><strong>P本地队列：</strong> 同全局队列类似，存放的也是等待运行的Goroutine，存的数量有限，最多256个。当新建一个Goroutine的时候，会优先加入到P本地队列，如果队列满了，则会把本地队列中一般的Goroutine移动到全局队列。</p>
+<p><strong>P列表：</strong> 所有的P都在程序启动的时候创建，并保存在数组中，这个数量是可以配置的。</p>
+<p><strong>M(线程)：</strong> 线程运行任务，获取P，然后从P的本地队列获取Goroutine，P队列为空的时候，M也会尝试从全局队列拿一批Goroutine放到P的本地队列，或者从其他P的本地队列偷取一半放到自己P的本地队列。M不断通过P获取Goroutine并执行，不断重复下去。M的数量最大默认是10000，但是内核很难支持这么多的线程数。如果M阻塞或者不够了，会创建新的M来支持。比如所有的M都被阻塞住了，而P中还有很多的就绪任务，调度器就会去寻找空闲的M。找不到的话，就会去创建新的M。</p>
+<p>Goroutine调度器负责协程把协程分配给线程，而OS调度器负责把内核线程分配到CPU的核上执行，整个过程由两个调度器结合完成。</p>
+<p><strong>调度器的设计策略</strong></p>
+<ol>
+<li>复用线程：线程并不是用完即销毁，会被复用，避免频繁的创建和销毁线程的开销。</li>
+<li>work stealing机制：当本线程无可运行的Goroutine时，尝试从其他绑定的P队列偷取Goroutine，而不是销毁线程。</li>
+<li>hand off机制：当本线程因为Goroutine进行系统调用阻塞时，线程释放绑定的P队列，把P转移给其他空闲的线程执行。</li>
+<li>并行：多个线程分布在多个CPU上同时运行。</li>
+<li>抢占式调度：限制Goroutine占用CPU的时间(比如10ms)，防止其他Goroutine被饿死。</li>
+<li>全局队列：全局队列相当于一个二级全局缓存，在已经有本地队列缓存的情况下，防止本地队列缓存数量过大。</li>
+</ol>
+<p>关于M0和G0的设计：M0是启动程序后编号为0的主线程，这个M对应的实例会在全局变量runtime.m0中，不需要在heap上分配，M0负责执行初始化操作和启动第一个Goroutine，在之后M0就和其他M一样了。G0是每次启动一个M都会第一个创建的Goroutine，G0仅用于负责调度Goroutine，不指向任何可执行的函数，每个M都会有自己的G0。在调度或者系统调用时会使用G0的栈空间，全局变量G0是M0的G0.</p>
+<h2 id="go调度器调度场景过程全解析">Go调度器调度场景过程全解析</h2>
+<p><strong>场景1</strong></p>
+<p>P拥有G1，M1获取P之后开始运行G1，G1使用go func()创建了G2，G2会优先加入到P1的本地队列，如图所示：</p>
+<p><img src="/blog/2021/case_1.png" alt="case_1"></p>
+<p><strong>场景2</strong></p>
+<p>G1运行完成后退出后(goexit)，M上运行的goroutine切换为G0，G0负责调度时协程的切换(schedule)。从P的本地列表获取G2，从G0切换到G2，并开始运行G2(excute)。实现了对线程M1的复用。</p>
+<p><img src="/blog/2021/case_2.png" alt="case_2"></p>
+<p><strong>场景3</strong></p>
+<p>P的本地队列存储的G有限，新开辟的G如果过多，则会把本地队列塞满，如下图所示：</p>
+<p><img src="/blog/2021/case_3.jpg" alt="case_3"></p>
+<p>这个时候，已经溢出的G就需要额外的空间来存储，接下来我们继续看场景4.</p>
+<p><strong>场景4</strong></p>
+<p>G2在创建G7的时候，发现P1的本地队列已满，需要执行负载均衡，把P1中本地队列的前一半和新创建的G(不一定是新创建的G，如果G是在G2之后就执行的，则会被保存在本地队列中)转移到全局队列。如图所示：</p>
+<p><img src="/blog/2021/case_4.jpg" alt="case_4"></p>
+<p>这些G被转移到全局队列时，会被打乱顺序。</p>
+<p><strong>场景5</strong></p>
+<p>G2创建G8时，P1的本地队列未满，因此G8会被加入到本地队列。</p>
+<p><img src="/blog/2021/case_5.jpg" alt="case_5"></p>
+<p>G8加入到P1本地队列的原因是因为P1此时在与M1绑定，而G2此时是在M1执行。所以G2创建的新的G会优先放置到自己的M绑定的P队列上。</p>
+<p><strong>场景6</strong></p>
+<p>当全局队列有G未消费时，运行的G会尝试唤醒其他空闲的P和M组合。</p>
+<p><img src="/blog/2021/case_6.jpg" alt="case_6"></p>
+<p>假定G2唤醒了M2，M2绑定P2，并运行自己的第一个Goroutine-G0。但P2的本地队列还没有G，M2此时为自旋状态(没有G且状态为运行中的线程，不断寻找可执行的G)。</p>
+<p><strong>场景7</strong></p>
+<p>空闲的M2线程尝试从全局队列(简称GQ-global queue)取一批G放到P2的本地队列(函数：findrunable())。M2从全局队列取的G数量符合下面的公式：</p>
+<pre><code> n = min(len(GQ)/GOMAXPROCS + 1, len(GQ/2))
+</code></pre><p>意思是至少从全局队列里面取一个G到本地运行，GOMAXPROCS对应的是P的数量。也不能一次从全局队列拿太多的G到本地，要充分利用多核的优势，实现对G运行的负载均衡。</p>
+<p><img src="/blog/2021/case_7.jpg" alt="case_7"></p>
+<p>拿到G的M，完成从G0到实际的G的切换，开始运行G(图中为G3)。</p>
+<p><strong>场景8</strong></p>
+<p>假设G2一直在M1上运行，运行时间很长。经过几轮之后，M2已经把从全局队列获取到本地队列的G全部运行完了。这时候，全局队列和P2本地队列全部为空，如下图的左半部分。</p>
+<p><img src="/blog/2021/case_8.jpg" alt="case_8"></p>
+<p>空闲的M不会立马进入休眠模式，而是会执行work stealing从其他P的本地队列偷取一半的G(图中偷取3个中的一个：G8)放到自己的本地队列，然后开始执行。</p>
+<p><strong>场景9</strong></p>
+<p>P1本地队列的G已经被其他M偷走并运行完成，M1和M2分别运行G2和G8，M3和M4没有goroutine可以运行，转为自旋状态，不断寻找新的goroutine。</p>
+<p><img src="/blog/2021/case_9.jpg" alt="case_9"></p>
+<p>自旋本质上也是在运行，线程在运行却没有执行G，也会浪费CPU。但是销毁线程也不一定会节约CPU资源，创建和销毁CPU也会消耗CPU。自旋的目的是，当有新的goroutine来的时候，立刻能有M运行它。这中间要有一个平衡，过多的自旋线程会浪费CPU，因此设定系统中最多有GOMAXPROCS(也就是调度器的个数)个自旋的线程。其余的空闲线程则进入休眠模式。</p>
+<p><strong>场景10</strong></p>
+<p>当前除了M3和M4为自旋线程，还有M5和M6为空闲的线程，M的数量大于等于P。G8创建了G9，然后G8的运行遇到了阻塞的系统调用。这个时候，P1队列中等待运行的G9就会被卡住。因此，P2立马和M2解绑，P2会执行一下判断：如果P2本地队列有G、全局队列有G或者有空闲的M，P2会立马唤醒一个M和它绑定，否则P2会渐入空闲P列表，等待新的M。在本场景中，P2本地队列有G9，因此P2和空闲线程M5绑定，并把G9拿过来执行。</p>
+<p><img src="/blog/2021/case_10.jpg" alt="case_10"></p>
+<p><strong>场景11</strong></p>
+<p>接上个场景，当G8的系统调用非阻塞之后，M2和P2已经解绑了，但是M2会记住P2，并尝试重新获取和绑定P2。如果获取不到P2，则尝试获取空闲的P，空闲的P也没有的情况下，G8会被标记为可运行状态，并加入到全局队列，M2因为没有P绑定而变成休眠状态。那些长时间休眠的M会被GC回收，后面我们会专门开一篇来看Go的垃圾回收原理。</p>
+<p><img src="/blog/2021/case_11.jpg" alt="case_11"></p>
+<h2 id="总结">总结</h2>
+<p>Go的调度器也是轻量的，GMP的机制让Go具有了原生强大的并发能力。Go调度本质上是把大量的go协程分配到少量的线程上去执行，并利用多核并行，实现更强大的并发。</p>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">clavenzhang</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+      2021-04-16
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://z24z.com/tags/go/">go</a>
+          <a href="https://z24z.com/tags/gpm/">GPM</a>
+          <a href="https://z24z.com/tags/%E6%80%BB%E7%BB%93/">总结</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+        
+          <a class="next" href="/post/2021/concurency-in-go/">
+            <span class="next-text nav-default">golang并发总结</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+    
+
+  
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="icon-links">
+  
+  
+    <a href="https://github.com/sz-zz24" rel="me noopener" class="iconfont"
+      title="github"  target="_blank"
+      >
+      <svg class="icon" style="" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M512 12.672c-282.88 0-512 229.248-512 512 0 226.261333 146.688 418.133333 350.08 485.76 25.6 4.821333 34.986667-11.008 34.986667-24.618667 0-12.16-0.426667-44.373333-0.64-87.04-142.421333 30.890667-172.458667-68.693333-172.458667-68.693333C188.672 770.986667 155.008 755.2 155.008 755.2c-46.378667-31.744 3.584-31.104 3.584-31.104 51.413333 3.584 78.421333 52.736 78.421333 52.736 45.653333 78.293333 119.850667 55.68 149.12 42.581333 4.608-33.109333 17.792-55.68 32.426667-68.48-113.706667-12.8-233.216-56.832-233.216-253.013333 0-55.893333 19.84-101.546667 52.693333-137.386667-5.76-12.928-23.04-64.981333 4.48-135.509333 0 0 42.88-13.738667 140.8 52.48 40.96-11.392 84.48-17.024 128-17.28 43.52 0.256 87.04 5.888 128 17.28 97.28-66.218667 140.16-52.48 140.16-52.48 27.52 70.528 10.24 122.581333 5.12 135.509333 32.64 35.84 52.48 81.493333 52.48 137.386667 0 196.693333-119.68 240-233.6 252.586667 17.92 15.36 34.56 46.762667 34.56 94.72 0 68.522667-0.64 123.562667-0.64 140.202666 0 13.44 8.96 29.44 35.2 24.32C877.44 942.592 1024 750.592 1024 524.672c0-282.752-229.248-512-512-512"></path>
+</svg>
+
+    </a>
+
+
+<a href="https://z24z.com/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+   
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2021
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        clavenzhang
+        
+      </span></span>
+
+  
+  
+    <span id="busuanzi_container">
+      访客数/访问量：<span id="busuanzi_value_site_uv"></span>/<span id="busuanzi_value_site_pv"></span>
+    </span>
+  
+
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ=" crossorigin="anonymous"></script>
+
+
+
+  <script type="text/javascript">
+    window.MathJax = {
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

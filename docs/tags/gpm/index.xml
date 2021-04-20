@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GPM on claven&#39;s blog</title>
+    <link>https://z24z.com/tags/gpm/</link>
+    <description>Recent content in GPM on claven&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 16 Apr 2021 16:01:23 +0800</lastBuildDate><atom:link href="https://z24z.com/tags/gpm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>golang调度器GMP原理</title>
+      <link>https://z24z.com/post/2021/golang-gmp/</link>
+      <pubDate>Fri, 16 Apr 2021 16:01:23 +0800</pubDate>
+      
+      <guid>https://z24z.com/post/2021/golang-gmp/</guid>
+      <description>前言 Golang能够具备强大的并发能力，其核心秘诀就是goroutine协程以及通过调度器利用多核的能力，实现强大的并发支持能力。这一篇就来</description>
+    </item>
+    
+  </channel>
+</rss>

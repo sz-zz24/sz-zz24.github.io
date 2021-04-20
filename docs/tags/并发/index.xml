@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>并发 on claven&#39;s blog</title>
+    <link>https://z24z.com/tags/%E5%B9%B6%E5%8F%91/</link>
+    <description>Recent content in 并发 on claven&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 08 Apr 2021 16:01:23 +0800</lastBuildDate><atom:link href="https://z24z.com/tags/%E5%B9%B6%E5%8F%91/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>golang并发总结</title>
+      <link>https://z24z.com/post/2021/concurency-in-go/</link>
+      <pubDate>Thu, 08 Apr 2021 16:01:23 +0800</pubDate>
+      
+      <guid>https://z24z.com/post/2021/concurency-in-go/</guid>
+      <description>前言 Go语言最得天独厚的一个优势，就是并发处理能力，掌握Go Routine和Channel等这些概念的底层基本原理和使用技巧。疏通分布式并发</description>
+    </item>
+    
+  </channel>
+</rss>
