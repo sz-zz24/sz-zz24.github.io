@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>三色原理 on claven&#39;s blog</title>
+    <link>https://z24z.com/tags/%E4%B8%89%E8%89%B2%E5%8E%9F%E7%90%86/</link>
+    <description>Recent content in 三色原理 on claven&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 20 Apr 2021 16:01:23 +0800</lastBuildDate><atom:link href="https://z24z.com/tags/%E4%B8%89%E8%89%B2%E5%8E%9F%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>golang三色垃圾回收分析</title>
+      <link>https://z24z.com/post/2021/golang-gc/</link>
+      <pubDate>Tue, 20 Apr 2021 16:01:23 +0800</pubDate>
+      
+      <guid>https://z24z.com/post/2021/golang-gc/</guid>
+      <description>前言 垃圾回收(Garbage Collection，简称GC)是编程语言中提供的自动的内存管理机制，自动释放不需要的对象，让出存储器资源，无需</description>
+    </item>
+    
+  </channel>
+</rss>

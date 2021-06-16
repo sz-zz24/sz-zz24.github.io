@@ -6,13 +6,31 @@
     <description>Recent content in Tags on claven&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 16 Apr 2021 16:01:23 +0800</lastBuildDate><atom:link href="https://z24z.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 20 Apr 2021 16:01:23 +0800</lastBuildDate><atom:link href="https://z24z.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>go</title>
       <link>https://z24z.com/tags/go/</link>
-      <pubDate>Fri, 16 Apr 2021 16:01:23 +0800</pubDate>
+      <pubDate>Tue, 20 Apr 2021 16:01:23 +0800</pubDate>
       
       <guid>https://z24z.com/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>三色原理</title>
+      <link>https://z24z.com/tags/%E4%B8%89%E8%89%B2%E5%8E%9F%E7%90%86/</link>
+      <pubDate>Tue, 20 Apr 2021 16:01:23 +0800</pubDate>
+      
+      <guid>https://z24z.com/tags/%E4%B8%89%E8%89%B2%E5%8E%9F%E7%90%86/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>垃圾回收</title>
+      <link>https://z24z.com/tags/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</link>
+      <pubDate>Tue, 20 Apr 2021 16:01:23 +0800</pubDate>
+      
+      <guid>https://z24z.com/tags/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</guid>
       <description></description>
     </item>
     

@@ -3,10 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>标签 - claven&#39;s blog</title>
+  <title>golang三色垃圾回收分析 - claven&#39;s blog</title>
   
-<link rel="alternate" hreflang="" href="https://z24z.com/en/tags/" />
-
 
 <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
@@ -25,7 +23,8 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="clavenzhang" />
-  <meta name="description" content="zz&xh&#39;s private blog" />
+  <meta name="description" content="前言 垃圾回收(Garbage Collection，简称GC)是编程语言中提供的自动的内存管理机制，自动释放不需要的对象，让出存储器资源，无需" />
+
   <meta name="keywords" content="Hugo, theme, jane" />
 
 
@@ -36,8 +35,8 @@
 <meta name="generator" content="Hugo 0.80.0" />
 
 
-<link rel="canonical" href="https://z24z.com/tags/" />
-<link href="/tags/index.xml" rel="alternate" type="application/rss+xml" title="claven&#39;s blog" />
+<link rel="canonical" href="https://z24z.com/post/2021/golang-gc/" />
+
 
 
 
@@ -60,16 +59,24 @@
 
 
 
-<meta property="og:title" content="Tags" />
-<meta property="og:description" content="zz&amp;xh&#39;s private blog" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://z24z.com/tags/" />
-<meta property="og:updated_time" content="2021-04-20T16:01:23+08:00" />
-<meta itemprop="name" content="Tags">
-<meta itemprop="description" content="zz&amp;xh&#39;s private blog">
+<meta property="og:title" content="golang三色垃圾回收分析" />
+<meta property="og:description" content="前言 垃圾回收(Garbage Collection，简称GC)是编程语言中提供的自动的内存管理机制，自动释放不需要的对象，让出存储器资源，无需" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://z24z.com/post/2021/golang-gc/" />
+<meta property="article:published_time" content="2021-04-20T16:01:23+08:00" />
+<meta property="article:modified_time" content="2021-04-20T16:01:23+08:00" />
+<meta itemprop="name" content="golang三色垃圾回收分析">
+<meta itemprop="description" content="前言 垃圾回收(Garbage Collection，简称GC)是编程语言中提供的自动的内存管理机制，自动释放不需要的对象，让出存储器资源，无需">
+<meta itemprop="datePublished" content="2021-04-20T16:01:23+08:00" />
+<meta itemprop="dateModified" content="2021-04-20T16:01:23+08:00" />
+<meta itemprop="wordCount" content="1261">
+
+
+
+<meta itemprop="keywords" content="go,三色原理,垃圾回收," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Tags"/>
-<meta name="twitter:description" content="zz&amp;xh&#39;s private blog"/>
+<meta name="twitter:title" content="golang三色垃圾回收分析"/>
+<meta name="twitter:description" content="前言 垃圾回收(Garbage Collection，简称GC)是编程语言中提供的自动的内存管理机制，自动释放不需要的对象，让出存储器资源，无需"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -239,7 +246,7 @@
 
       </li>
     
-        <li class="menu-item active">
+        <li class="menu-item">
         
           
           
@@ -286,210 +293,156 @@
     <main id="main" class="main bg-llight">
       <div class="content-wrapper">
         <div id="content" class="content container">
-          
-  
-  
-  
-  
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">golang三色垃圾回收分析</h1>
+      
+      <div class="post-meta">
+        <time datetime="2021-04-20" class="post-time">
+          2021-04-20
+        </time>
+        <div class="post-category">
+            <a href="https://z24z.com/categories/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"> 知识总结 </a>
+            
+          </div>
+        <span class="more-meta"> 约 1261 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
 
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <div class="tag-cloud" style="padding: 5px 15px">
-      <div class="tag-cloud-title">
-        共计 16 个标签
+        
+        
+          <span id="busuanzi_container_page_pv">
+            | 阅读 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+        
+        
       </div>
-      <div class="tag-cloud-tags">
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="https://z24z.com/tags/coursera/"
-          style="font-size:1rem">coursera</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="https://z24z.com/tags/git-pages/"
-          style="font-size:1rem">git-pages</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="https://z24z.com/tags/go/"
-          style="font-size:2.188721875540867rem">go</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="https://z24z.com/tags/gpm/"
-          style="font-size:1rem">gpm</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="https://z24z.com/tags/hugo/"
-          style="font-size:1rem">hugo</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="https://z24z.com/tags/learning/"
-          style="font-size:1rem">learning</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="https://z24z.com/tags/summary/"
-          style="font-size:1rem">summary</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="https://z24z.com/tags/%E4%B8%89%E8%89%B2%E5%8E%9F%E7%90%86/"
-          style="font-size:1rem">三色原理</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="https://z24z.com/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"
-          style="font-size:1rem">个人博客</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="https://z24z.com/tags/%E5%8A%AA%E5%8A%9B/"
-          style="font-size:1rem">努力</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="https://z24z.com/tags/%E5%8A%B1%E5%BF%97/"
-          style="font-size:1rem">励志</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="https://z24z.com/tags/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/"
-          style="font-size:1rem">垃圾回收</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="https://z24z.com/tags/%E5%B9%B6%E5%8F%91/"
-          style="font-size:1rem">并发</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="https://z24z.com/tags/%E6%80%BB%E7%BB%93/"
-          style="font-size:2.188721875540867rem">总结</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="https://z24z.com/tags/%E8%AF%BB%E4%B9%A6/"
-          style="font-size:1rem">读书</a>
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        <a href="https://z24z.com/tags/%E8%AF%BE%E7%A8%8B/"
-          style="font-size:1rem">课程</a>
-        
-      
-      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#前言">前言</a></li>
+    <li><a href="#标记-回收算法mark-and-sweep">标记-回收算法(Mark and Sweep)</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <h2 id="前言">前言</h2>
+<p>垃圾回收(Garbage Collection，简称GC)是编程语言中提供的自动的内存管理机制，自动释放不需要的对象，让出存储器资源，无需程序员手动执行。</p>
+<p>垃圾回收主要有两种机制：</p>
+<ol>
+<li>引用计数(Reference Counting：给每一个对象增加一个计数器，每当该对象被引用/解除引用时，则计数器自增/自减1；当该计数器归零时，则对象会被回收。</li>
+<li>追踪(Tracing)：定期遍历内存空间，从若干根存储对象开始查找与之相关的存储对象，然后标记其余的没有关联的存储对象，最后回收这些没有关联的存储对象占用的内存空间。
+引用计数看上去非常容易理解，好像也每什么问题。但是，它在运行时，要考虑计数器的并发控制以及给计数器开辟额外的内存空间。同时，针对对象循环引用没有办法解决。Go语言采用的是追踪的方式，在扫描期间，GC过程和其他用户goroutine可并发运行，但需要一定时间的STW(stop the world)，STW的过程中，CPU不执行用户代码，全部用于垃圾回收，这个过程的影响很大，Golang进行了多次的迭代优化来解决这个问题。</li>
+</ol>
+<h2 id="标记-回收算法mark-and-sweep">标记-回收算法(Mark and Sweep)</h2>
+<p>这是Go在V1.3版本之前的算法，顾名思义，回收主要包含两个步骤：1、标记；2、回收。第一步，暂停程序业务逻辑, 从一些根节点逐步遍历存活单元，找出所有可达的对象，然后做上标记。第二步, 标记完了之后，然后开始清除未标记的对象。第三步, 停止暂停，让程序继续跑。然后循环重复这个过程，直到process程序生命周期结束。</p>
+<p><strong>算法缺点</strong></p>
+<ul>
+<li>程序暂停，从直观上来看，就是会出现卡顿现象。如果对象多或者链路复杂的话，整个回收时间就会变得很长，也就意味着卡顿时间会很长，这无疑是不合理的。</li>
+<li>标记需要扫描整个heap，开销大。</li>
+<li>清除数据会产生heap碎片。</li>
+</ul>
+<p>在三色回收算法中，会区分堆上的对象和栈上的对象，借此机会记录一下堆栈(heap and stack)的区别。第一步，堆栈分为两个方面：</p>
+<ul>
+<li>数据结构的堆和栈</li>
+<li>内存分配方式的堆和栈</li>
+</ul>
+<p>数据结构的堆和栈比较好理解，栈是先入后出的数据结构，有数组实现的静态栈，也有链表实现的动态栈。而堆则是树形结构，比如常见的最大堆和最小堆。</p>
+<p>像垃圾回收这种，指的就是内存分配中的堆和栈。内存分配主要有以下三种：</p>
+<ol>
+<li>从静态存储区域分配：它是由编译器自动分配和释放的，即内存在程序编译的时候就已经分配好，这块内存在程序的整个运行期间都存在，直到整个程序运行结束时才被释放，如全局变量与const变量。</li>
+<li>在栈上分配：它同样也是由编译器自动分配和释放的，即在执行函数时，函数内局部变量的存储单元都可以在栈上创建，函数执行结束时这些存储单元将被自动释放。需要注意的是，栈内存分配运算内置于处理器的指令集中，它的运行效率一般很高，但是分配的内存容量有限。比如：i := 0 或 s := &ldquo;abcdef&rdquo;.</li>
+<li>从堆上分配：也被称为动态内存分配，它是由程序员手动完成申请和释放的。即程序在运行的时候由程序员使用内存分配函数来申请任意多少的内存。比如：arr := make([]int, 10).</li>
+</ol>
+<p>由此可见，内存分配的堆栈与数据结构中所阐述的堆栈有着本质的区别，这一点千万不要混淆。</p>
+
     </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">clavenzhang</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+      2021-04-20
+      
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://z24z.com/tags/go/">go</a>
+          <a href="https://z24z.com/tags/%E4%B8%89%E8%89%B2%E5%8E%9F%E7%90%86/">三色原理</a>
+          <a href="https://z24z.com/tags/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/">垃圾回收</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+        
+          <a class="next" href="/post/2021/golang-gmp/">
+            <span class="next-text nav-default">golang调度器GMP原理</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
   
   
 
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+    
+
+  
 
         </div>
       </div>
@@ -586,6 +539,13 @@
 
 
 
+  <script type="text/javascript">
+    window.MathJax = {
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
 
 

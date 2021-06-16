@@ -6,7 +6,16 @@
     <description>Recent content in Posts on claven&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 16 Apr 2021 16:01:23 +0800</lastBuildDate><atom:link href="https://z24z.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 20 Apr 2021 16:01:23 +0800</lastBuildDate><atom:link href="https://z24z.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>golang三色垃圾回收分析</title>
+      <link>https://z24z.com/post/2021/golang-gc/</link>
+      <pubDate>Tue, 20 Apr 2021 16:01:23 +0800</pubDate>
+      
+      <guid>https://z24z.com/post/2021/golang-gc/</guid>
+      <description>前言 垃圾回收(Garbage Collection，简称GC)是编程语言中提供的自动的内存管理机制，自动释放不需要的对象，让出存储器资源，无需</description>
+    </item>
+    
     <item>
       <title>golang调度器GMP原理</title>
       <link>https://z24z.com/post/2021/golang-gmp/</link>
