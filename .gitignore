@@ -13,3 +13,5 @@ hugo.linux
 .DS_Store
 
 deploy.sh
+
+cv_202210.md
