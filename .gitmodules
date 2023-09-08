@@ -2,6 +2,35 @@
 	path = public
 	url = git@github.com:sz-zz24/sz-zz24.github.io.git
 	branch = master
+[submodule "themes/jane"]
+    path = themes/jane
+    url = https://github.com/xianmin/hugo-theme-jane
+	branch = master
 [submodule "themes/anatole"]
     path = themes/anatole
-    url = git@github.com:sz-zz24/sz-zz24.github.io.git
+    url = https://github.com/lxndrblz/anatole
+	branch = master
+[submodule "themes/hugo-devresume-theme"]
+    path = themes/hugo-devresume-theme
+    url = https://github.com/cowboysmall-tools/hugo-devresume-theme
+	branch = master
+[submodule "themes/hugo-goa"]
+    path = themes/hugo-goa
+    url = https://github.com/kaapiandcode/hugo-goa
+	branch = master
+[submodule "themes/hugo-theme-cleanwhite"]
+    path = themes/hugo-theme-cleanwhite
+    url = https://github.com/zhaohuabing/hugo-theme-cleanwhite
+	branch = master
+[submodule "themes/hugo-theme-dimension"]
+    path = themes/hugo-theme-dimension
+    url = https://github.com/your-identity/hugo-theme-dimension
+	branch = master
+[submodule "themes/hugo-theme-zozo"]
+    path = themes/hugo-theme-zozo
+    url = https://github.com/varkai/hugo-theme-zozo
+	branch = master
+[submodule "themes/pulp"]
+    path = themes/pulp
+    url = https://github.com/koirand/pulp
+	branch = master
